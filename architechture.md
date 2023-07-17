@@ -9,8 +9,8 @@ The client-server architecture allows for a clear separation of concerns, making
 
 # Stack
 
-### Backend : Django
+### Backend : Django Rest Framework
 
-### Frontend : React
+### Frontend : React 
 
-### Database : Postgresql
+### Database : PostgreSQL
