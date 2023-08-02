@@ -49,16 +49,33 @@ app.get('/getUsers/:id',async (req,res)=>{
         console.log(err);
     }
 })
+//Create a new user
+app.post('/createUser',async (req,res)=>{
 
-app.post('/createUser',(req,res)=>{
-    console.log("Got a new user");
-    console.log(req.body);
+    try{
+
+        console.log(req.body);
+        const result=await db.query("INSERT INTO public.user(\"UserID\",\"Name\") VALUES($1,$2) ",[req.body.UserID,req.body.Name]);
+
+        console.log(result);
+        res.status(201).json({
+            status:"success",
+            data:{
+                users:result.rows[0],
+            }
+        })
+
+    }
+    catch(err){
+        console.log("Caught an error")
+        console.log(err);
+    }
 })
 app.get('/getUniversities/:id',(req,res)=>{ 
     console.log(req.params.id);
 })
 
-//Create a new user
+
 
 app.get('/getUniversities',(req,res)=>{ 
     res.json({
