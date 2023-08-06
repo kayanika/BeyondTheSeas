@@ -26,7 +26,7 @@
   }
 
   .sidebar {
-    background-color: #004964; /* Bottle green color */
+    background-color:hsl(174, 100%, 20%); /* Bottle green color */
     padding: 10px;
     flex: 1;
   }
