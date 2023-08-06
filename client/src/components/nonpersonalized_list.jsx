@@ -11,8 +11,8 @@ const UniversityList = () => {
                     <th scope="col">Country</th>
                     <th scope="col">Rank</th>
                     <th scope="col">Tuition Fees</th>
-                    <th scope="col">Cuttoff cgpa</th>
-                    <th scope="col">Cuttoff gre</th>
+                    <th scope="col">Cutoff cgpa</th>
+                    <th scope="col">Cutoff gre</th>
                     <th scope="col">Available Scholarship</th>
                 </tr>
             </thead>

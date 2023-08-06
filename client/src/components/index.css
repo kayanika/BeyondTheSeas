@@ -1,6 +1,23 @@
 /* index.css or App.css */
+
+
 .bg-bottle-green {
-    background-color: hsl(174, 100%, 20%);
+    /* background-color: hsl(174, 100%, 20%); */
+    display: flex;
+   background-image: url('../images/background4.jpg');
+  /* Set background properties */
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-color: #629464;
+   
+  }
+
+  .bold-font {
+    font-weight: 500;
+  }
+  
+  .roboto-font {
+    font-family: 'Roboto', sans-serif;
   }
 
 
@@ -12,19 +29,38 @@
   .home-analysis-container {
     display: flex;
     flex-direction: column;
+   
+      background-image: url('../images/background4.jpg');
+      /* Set background properties */
+      background-repeat: no-repeat; 
+      background-size: cover;
+    
+   
   }
   
   .sidebar-and-content {
     display: flex;
+   
   }
+
+  /* Media query for small screens (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+  .sidebar-and-content {
+    /* Adjust styles for small screens */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    padding: 20px; /* Add some padding to the elements */
+    background-size: contain; /* Adjust background size for small screens */
+  }
+}
   
-  .third-container {
+  /* .third-container {
     flex: 1;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   
   
   
@@ -35,15 +71,16 @@
 
   /* index.css */
   .third-container {
-    background-color:hsl(174, 100%, 20%); /* Bottle green color */
+    /* background-color:hsl(174, 100%, 20%);  */
     padding: 10px;
     flex: 1;
     height: 100vh;
+    display: flex;
   }
 
 
   .sidebar {
-    background-color:hsl(174, 100%, 20%); /* Bottle green color */
+    /* background-color:hsl(174, 100%, 20%);  */
     padding: 10px;
     flex: 1;
     height: 100vh;
@@ -59,7 +96,7 @@
     height: 50px; /* Set a fixed height for the buttons */
     margin-bottom: 10px; /* Add some space between the buttons */
     color: white; /* Set the text color to white */
-    background-color: #28a7a3; /* Apply a green color to the buttons */
+    background-color: #578039; /* Apply a green color to the buttons */
     border: none; /* Remove any button borders */
     border-radius: 30px; /* Apply a larger border radius to make the edges softer */
     font-size: 16px; /* Set the font size */
@@ -74,13 +111,14 @@
     justify-content: center;
   }
   
+  
   /* Real-time effect */
   .button::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent white background */
     top: 0;
     left: -100%; /* Move it to the left initially */
     transition: left 0.3s ease; /* Animate the left position */
@@ -91,16 +129,17 @@
   }
   
   /* Hover effect with vibration */
-  /* @keyframes vibration {
+  @keyframes vibration {
     0% { transform: translateX(0); }
-    20% { transform: translateX(-2px); }
-    30% { transform: translateX(2px); }
-    40% { transform: translateX(-2px); }
+    20% { transform: translateX(-1px); }
+    30% { transform: translateX(1px); }
+    40% { transform: translateX(-1px); }
     50% { transform: translateX(0); }
   }
-   */
+  
   .button:hover {
-    background-color: #2f9d9b; /* Change the button background color on hover */
+    color:black;
+    background-color: #5f8039; /* Change the button background color on hover */
     transform: scale(1.05); /* Scale up the button slightly on hover */
     animation: vibration 0.2s ease infinite; /* Add the vibration animation on hover */
   }
@@ -112,7 +151,7 @@
   }
 
   .button a:hover {
-    
+    color:black;
     text-decoration:none;
   }
 
