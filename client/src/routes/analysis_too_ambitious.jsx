@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../components/tooAmbitiousHeader';
 import Sidebar from '../components/sidebar';
-import UniversityList from '../components/university_list';
+
+import AmbitiousUniversityList from '../components/ambitious_university_list';
 
 const analysis_too_ambitious = () => {
   return (
@@ -10,7 +11,7 @@ const analysis_too_ambitious = () => {
     <div className="sidebar-and-content">
       <Sidebar />
       <div className="content-container">
-        <UniversityList />
+        <AmbitiousUniversityList />
         {/* Add your content specific to the home_analysis page here */}
         {/* For example, analysis details, charts, etc. */}
       </div>

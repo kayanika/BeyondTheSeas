@@ -3,7 +3,7 @@ import beyondTheSeas from '../apis/beyondTheSeas'
 import { UniversityContext } from '../context/universityContext'
 
 
-const UniversityList = (props) => {
+const ProbableUniversityList = (props) => {
      const {universities, setUniversities} = useContext(UniversityContext)
     useEffect(async() => {
 
@@ -51,4 +51,4 @@ const UniversityList = (props) => {
   )
 }
 
-export default UniversityList
+export default ProbableUniversityList

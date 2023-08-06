@@ -18,6 +18,14 @@
     display: flex;
   }
   
+  .third-container {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   
   
   .content-container {
@@ -25,10 +33,20 @@
     padding: 20px; /* Optional: Add padding to the content container */
   }
 
+  /* index.css */
+  .third-container {
+    background-color:hsl(174, 100%, 20%); /* Bottle green color */
+    padding: 10px;
+    flex: 1;
+    height: 100vh;
+  }
+
+
   .sidebar {
     background-color:hsl(174, 100%, 20%); /* Bottle green color */
     padding: 10px;
     flex: 1;
+    height: 100vh;
   }
   
   .button-container {
@@ -41,7 +59,7 @@
     height: 50px; /* Set a fixed height for the buttons */
     margin-bottom: 10px; /* Add some space between the buttons */
     color: white; /* Set the text color to white */
-    background-color: #2892a7; /* Apply a green color to the buttons */
+    background-color: #28a7a3; /* Apply a green color to the buttons */
     border: none; /* Remove any button borders */
     border-radius: 30px; /* Apply a larger border radius to make the edges softer */
     font-size: 16px; /* Set the font size */
@@ -95,7 +113,7 @@
 
   .button a:hover {
     
-    text-decoration: none; /* Add underline on hover */
+    text-decoration:none;
   }
 
 

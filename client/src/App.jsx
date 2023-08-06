@@ -35,7 +35,7 @@ const App = () => {
   <div>
     <Router>
         <Routes>
-            <Route exact path="//api/user/:userID/nonPersonalized'" Component={home_analysis} />
+            <Route exact path="/api/user/:userID/nonPersonalized" Component={home_analysis} />
             <Route exact path="/api/user/:userID/personalized/ambitious" Component={analysis_too_ambitious} />
             <Route exact path="/api/user/:userID/personalized/safe" Component={analysis_safe_option} />
             <Route exact path="/api/user/:userID/personalized/probable" Component={analysis_probable_chances} />
