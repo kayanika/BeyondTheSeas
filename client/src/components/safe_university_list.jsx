@@ -3,13 +3,13 @@ import beyondTheSeas from '../apis/beyondTheSeas'
 import { UniversityContext } from '../context/universityContext'
 
 
-const UniversityList = (props) => {
+const SafeUniversityList = (props) => {
      const {universities, setUniversities} = useContext(UniversityContext)
     useEffect(async() => {
 
     try{          
                 console.log("sending request to backend")
-               const response=await  beyondTheSeas.get('/:userID/personalized/probable');
+               const response=await  beyondTheSeas.get('/:userID/personalized/safe');
                console.log("response from backend")
                setUniversities(response.data.data.universities);
                // console.log(response);
@@ -51,4 +51,4 @@ const UniversityList = (props) => {
   )
 }
 
-export default UniversityList
+export default SafeUniversityList
