@@ -1,7 +1,6 @@
 const personalized = require('../db/academicAnalysis').academicAnalysis;
 
 const analysis=new personalized();
-
 exports.getPersonalized= async function(req,res,next){
     try{
         console.log("inside getPersonalized");

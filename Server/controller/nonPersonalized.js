@@ -5,10 +5,10 @@ const nonPersonalizedAnalysis=new nonPersonalized();
 exports.getNonPersonalized= async function(req,res,next){
     try{
         console.log("inside getPersonalized");
-        const result=await analysis.getNonPersonalized();
+        const result=await nonPersonalizedAnalysis.getNonPersonalized();
         console.log("got the result back from database");
         console.log(result);
-        res.status(201).json({
+        res.status(200).json({
             status:"success",
             data:{
                 user:result.rows
@@ -23,16 +23,30 @@ exports.getNonPersonalized= async function(req,res,next){
 
 exports.getNonPersonalizedFiltered = async function(req,res,next){
     try{
-        console.log("inside getProbable");
-        const result=await analysis.getNonPersonalizedFiltered();
+        console.log("inside non personalized filtered");
+        if(req.params.filterOption=="scholarship"){
+            const result=await nonPersonalizedAnalysis.getNonPersonalizedFilteredScholarship(req.params.filterOption);
+            console.log("got the result back from database");
+            console.log(result);
+            res.status(200).json({
+                status:"success",
+                data:{
+                    user:result.rows
+                }
+            })
+        }
+        else{
+            const result=await nonPersonalizedAnalysis.getNonPersonalizedFilteredTuitionFees(req.params.filterOption);
         console.log("got the result back from database");
         console.log(result);
-        res.status(201).json({
+        res.status(200).json({
             status:"success",
             data:{
                 user:result.rows
             }
         })
+        }
+        
     }
     catch(err){
         console.log(err);

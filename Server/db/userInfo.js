@@ -13,6 +13,8 @@ class userInfo{
         const result = await db.query(query, params);
         return result;
     }
+
+    
     
 }
 
