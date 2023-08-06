@@ -3,6 +3,12 @@
     background-color: hsl(174, 100%, 20%);
   }
 
+
+  .logo-img {
+    max-width: 150px; /* Adjust the maximum width for the logo */
+    margin-bottom: 0px; /* Reduce the space below the logo */
+  }
+
   .home-analysis-container {
     display: flex;
     flex-direction: column;
