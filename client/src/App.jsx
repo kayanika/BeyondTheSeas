@@ -11,6 +11,7 @@ import view_shortlist from "./routes/view_shortlist";
 import forum from "./routes/forum";
 import home_page from "./routes/home_page";
 import Header from "./components/header";
+import { UniversityContextProvider } from "./context/universityContext";
 
 // import ViewProfile from './components/ViewProfile';
 // import ViewShortlist from './components/ViewShortlist';
@@ -29,23 +30,26 @@ import Header from "./components/header";
 // };
 
 const App = () => {
-  return <div>
+  return (
+  <UniversityContextProvider>
+  <div>
     <Router>
         <Routes>
-            <Route exact path="/api/user/:id/non-personalized-recommendation" Component={home_analysis} />
-            <Route exact path="/api/user/:id/personalized-recommendation/ambitious" Component={analysis_too_ambitious} />
-            <Route exact path="/api/user/:id/personalized-recommendation/safe" Component={analysis_safe_option} />
-            <Route exact path="/api/user/:id/personalized-recommendation/probable" Component={analysis_probable_chances} />
-            <Route exact path="/api/user/:id/student-profile" Component={view_profile_component} />
-            <Route exact path="/api/user/:id/view-shortlist" Component={view_shortlist} />
-            <Route exact path="/api/user/:id/view-forum" Component={forum} />
-            <Route exact path="/api/user/:id/home" Component={home_page} />
+            <Route exact path="//api/user/:userID/nonPersonalized'" Component={home_analysis} />
+            <Route exact path="/api/user/:userID/personalized/ambitious" Component={analysis_too_ambitious} />
+            <Route exact path="/api/user/:userID/personalized/safe" Component={analysis_safe_option} />
+            <Route exact path="/api/user/:userID/personalized/probable" Component={analysis_probable_chances} />
+            <Route exact path="/api/user/:userID/student-profile" Component={view_profile_component} />
+            <Route exact path="/api/user/:userID/view-shortlist" Component={view_shortlist} />
+            <Route exact path="/api/user/:userID/view-forum" Component={forum} />
+            <Route exact path="/api/user/:userID/home" Component={home_page} />
             
             
             
         </Routes>
     </Router>
-  </div>;
+  </div>
+  </UniversityContextProvider>);
 };
 
 export default App;

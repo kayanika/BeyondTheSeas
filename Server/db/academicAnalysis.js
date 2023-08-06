@@ -32,7 +32,9 @@ class academicAnalysis{
             u.university_id,
             u.name,
             u.cs_ranking,
-            pcm.program_id,
+            p.program_type,
+            p.tuition_fees,
+            
             
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
@@ -46,7 +48,7 @@ class academicAnalysis{
              (sd.in_need_of_scholarship = TRUE AND  up.available_scholarship  = TRUE))
             AND u.cutoff_cgpa - sd.cgpa <=.1 
             AND u.cutoff_grescore - sd.gre_score <=20
-        GROUP BY u.university_id, u.name, u.cs_ranking,	pcm.program_id
+        GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
         ORDER BY matched_courses DESC;`;
         const params = [];
         const result = await db.query(query, params);
