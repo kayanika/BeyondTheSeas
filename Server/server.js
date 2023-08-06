@@ -3,6 +3,7 @@ const express=require('express');
 const morgan=require('morgan'); //prints status of the request plus the time taken to process the request
 
 const db=require('./db');
+const cors= require('cors');
 const app=express();
 
 // app.use((req,res)=>{   
@@ -10,6 +11,7 @@ const app=express();
 // })
 
 // I can write the middlewares here
+app.use(cors());
 app.use(express.json());    //takes the request body and parses it into json
 
 // app.get('/getUsers',async (req,res)=>{    //we used async because we are using await
@@ -100,9 +102,9 @@ const forumRouter=require('./routes/forum');
 
 
 //app.use('/api',homeRouter);
-app.use('/api',authRouter);
+app.use('/api/user',authRouter);
 app.use('/api/user/:userID/personalized',personalizedRouter);
-app.use('/api/user/:userID/nonPersonalized',nonPersonalizedRouter);
+app.use('/api/user/:userID/nonPersosoalized',nonPersonalizedRouter);
 //app.use('/api/user/:userID/activity',activityRouter);
 //app.use('/api/user/:userID/forum',forumRouter); 
 

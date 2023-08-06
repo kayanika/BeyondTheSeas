@@ -10,7 +10,7 @@ exports.getPersonalized= async function(req,res,next){
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -29,7 +29,7 @@ exports.getProbable = async function(req,res,next){
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -50,7 +50,7 @@ exports.getSafe= async function(req,res,next){
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -70,7 +70,7 @@ exports.getAmbitious = async function(req,res,next){
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
