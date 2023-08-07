@@ -13,7 +13,7 @@ class academicAnalysis{
         return result;
     }
 
-    getProbable= async function() {
+    getProbable= async function(userID) {
         const query = `WITH StudentData AS (
             SELECT
                 s.student_id,
@@ -24,7 +24,7 @@ class academicAnalysis{
                 ARRAY_AGG(DISTINCT sf.field_id) AS student_fields
             FROM student s
             LEFT JOIN studentFieldOfInterest sf ON s.student_id = sf.student_id
-            WHERE s.student_id = '3' -- Replace with the specific student's ID
+            WHERE s.student_id = $1 -- Replace with the specific student's ID
             GROUP BY s.student_id
         )
         
@@ -32,7 +32,9 @@ class academicAnalysis{
             u.university_id,
             u.name,
             u.cs_ranking,
-            pcm.program_id,
+            p.program_type,
+            p.tuition_fees,
+            
             
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
@@ -46,13 +48,15 @@ class academicAnalysis{
              (sd.in_need_of_scholarship = TRUE AND  up.available_scholarship  = TRUE))
             AND u.cutoff_cgpa - sd.cgpa <=.1 
             AND u.cutoff_grescore - sd.gre_score <=20
-        GROUP BY u.university_id, u.name, u.cs_ranking,	pcm.program_id
+        GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
         ORDER BY matched_courses DESC;`;
-        const params = [];
+        const params = [userID];
         const result = await db.query(query, params);
         return result;
     }
-    getSafe= async function() { 
+    getSafe= async function(userID) { 
+        console.log("inside getSafe in db");
+        console.log(userID);
         const query = `WITH StudentData AS (
             SELECT
                 s.student_id,
@@ -63,16 +67,16 @@ class academicAnalysis{
                 ARRAY_AGG(DISTINCT sf.field_id) AS student_fields
             FROM student s
             LEFT JOIN studentFieldOfInterest sf ON s.student_id = sf.student_id
-            WHERE s.student_id = '1' -- Replace with the specific student's ID
+            WHERE s.student_id = $1 -- Replace with the specific student's ID
             GROUP BY s.student_id
         )
         
         SELECT
-            u.university_id,
-            u.name,
-            u.cs_ranking,
-            pcm.program_id,
-            
+        u.university_id,
+        u.name,
+        u.cs_ranking,
+        p.program_type,
+        p.tuition_fees,
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
         JOIN universityRunsProgram up ON u.university_id = up.university_id
@@ -85,15 +89,15 @@ class academicAnalysis{
              (sd.in_need_of_scholarship = TRUE AND  p.scholarship_available  = TRUE))
             AND u.cutoff_cgpa <=sd.cgpa 
             AND u.cutoff_grescore <= sd.gre_score
-        GROUP BY u.university_id, u.name, u.cs_ranking,	pcm.program_id
+            GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
         ORDER BY matched_courses DESC;
         
         `;
-        const params = [];
+        const params = [userID];
         const result = await db.query(query, params);
         return result;
     }
-    getAmbitious= async function() {
+    getAmbitious= async function(userID) {
         const query = `WITH StudentData AS (
             SELECT
                 s.student_id,
@@ -104,16 +108,16 @@ class academicAnalysis{
                 ARRAY_AGG(DISTINCT sf.field_id) AS student_fields
             FROM student s
             LEFT JOIN studentFieldOfInterest sf ON s.student_id = sf.student_id
-            WHERE s.student_id = '3' -- Replace with the specific student's ID
+            WHERE s.student_id = $1 -- Replace with the specific student's ID
             GROUP BY s.student_id
         )
         
         SELECT
-            u.university_id,
-            u.name,
-            u.cs_ranking,
-            pcm.program_id,
-            
+        u.university_id,
+        u.name,
+        u.cs_ranking,
+        p.program_type,
+        p.tuition_fees,
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
         JOIN universityRunsProgram up ON u.university_id = up.university_id
@@ -126,9 +130,9 @@ class academicAnalysis{
              u.cutoff_cgpa - sd.cgpa <= .2 
             AND u.cutoff_grescore - sd.gre_score <= 50
             AND up.program_rating > 4.5
-        GROUP BY u.university_id, u.name, u.cs_ranking,	pcm.program_id
+            GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
         ORDER BY matched_courses DESC;`;
-        const params = [];
+        const params = [userID];
         
         const result = await db.query(query, params);
         return result;

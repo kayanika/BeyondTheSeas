@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/safeOptionHeader';
 import Sidebar from '../components/sidebar';
-import UniversityList from '../components/university_list';
+import SafeUniversityList from '../components/safe_university_list';
 
 const analysis_safe_option = () => {
   return (
@@ -10,7 +10,7 @@ const analysis_safe_option = () => {
     <div className="sidebar-and-content">
       <Sidebar />
       <div className="content-container">
-        <UniversityList />
+        <SafeUniversityList />
         {/* Add your content specific to the home_analysis page here */}
         {/* For example, analysis details, charts, etc. */}
       </div>

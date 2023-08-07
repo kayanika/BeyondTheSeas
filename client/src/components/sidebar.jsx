@@ -7,23 +7,23 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="button-container">
         {/* Link to the /home page */}
-        <Link to="/api/user/:id/home" className="button">
+        <Link to="/api/user/:userID/home" className="button">
           Home
         </Link>
         {/* Link to the /view-profile page */}
-        <Link to="/api/user/:id/student-profile" className="button">
+        <Link to="/api/user/:userID/student-profile" className="button">
           View Profile
         </Link>
         {/* Link to the /home_analysis page */}
-        <Link to="/api/user/:id/non-personalized-recommendation" className="button">
+        <Link to="/api/user/:userID/nonPersonalized" className="button">
           University Analysis
         </Link>
         {/* Link to the /view-shortlist page */}
-        <Link to="/api/user/:id/view-shortlist" className="button">
+        <Link to="/api/user/:userID/view-shortlist" className="button">
           View Shortlist
         </Link>
         {/* Link to the /view-forum page */}
-        <Link to="/api/user/:id/view-forum" className="button">
+        <Link to="/api/user/:userID/view-forum" className="button">
           View Forum
         </Link>
         

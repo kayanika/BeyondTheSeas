@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../components/mostProbableHeader';
 import Sidebar from '../components/sidebar';
-import UniversityList from '../components/university_list';
+import ProbableUniversityList from '../components/probable_university_list';
+
 
 const analysis_probable_chances = () => {
   return (
@@ -10,7 +11,7 @@ const analysis_probable_chances = () => {
     <div className="sidebar-and-content">
       <Sidebar />
       <div className="content-container">
-        <UniversityList />
+        <ProbableUniversityList/>
         {/* Add your content specific to the home_analysis page here */}
         {/* For example, analysis details, charts, etc. */}
       </div>

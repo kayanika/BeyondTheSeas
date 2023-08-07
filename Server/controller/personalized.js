@@ -10,7 +10,7 @@ exports.getPersonalized= async function(req,res,next){
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -23,13 +23,15 @@ exports.getPersonalized= async function(req,res,next){
 exports.getProbable = async function(req,res,next){
     try{
         console.log("inside getProbable");
-        const result=await analysis.getProbable();
+        console.log(req.params.userID);
+        console.log(req.params)
+        const result=await analysis.getProbable(req.params.userID);
         console.log("got the result back from database");
         console.log(result);
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -44,13 +46,15 @@ exports.getProbable = async function(req,res,next){
 exports.getSafe= async function(req,res,next){
     try{
         console.log("inside getSafe");
-        const result=await analysis.getSafe();
+        console.log(req.params.userID);
+     console.log(req)
+        const result=await analysis.getSafe(req.params.userID);
         console.log("got the result back from database");
         console.log(result);
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
@@ -64,13 +68,13 @@ exports.getSafe= async function(req,res,next){
 exports.getAmbitious = async function(req,res,next){
     try{
         console.log("inside getAmbitious");
-        const result=await analysis.getAmbitious();
+        const result=await analysis.getAmbitious(req.params.userID);
         console.log("got the result back from database");
         console.log(result);
         res.status(201).json({
             status:"success",
             data:{
-                user:result.rows
+                universities:result.rows
             }
         })
     }
