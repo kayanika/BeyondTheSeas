@@ -18,14 +18,15 @@ const home_analysis = () => {
         </div>
         <div className="third-container">
           <div className="button-container">
-            <Link to="/api/user/:userID/personalized/ambitious">
-              <button className="button">Too Ambitious List</button>
+            <Link to="/api/user/:userID/personalized/ambitious" className="button">
+              Too Ambitious List
             </Link>
-            <Link to="/api/user/:userID/personalized/probable">
-              <button className="button">Most Probable List</button>
+            
+            <Link to="/api/user/:userID/personalized/probable"className="button">
+              Most Probable List
             </Link>
-            <Link to="/api/user/:userID/personalized/safe">
-              <button className="button">Safe Option List</button>
+            <Link to="/api/user/:userID/personalized/safe"className="button">
+              Safe Option List
             </Link>
           </div>
         </div>

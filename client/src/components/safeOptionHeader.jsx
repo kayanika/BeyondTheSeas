@@ -10,7 +10,7 @@ const Header = () => {
           <img src={logo} alt="Logo" className="logo-img" />
         </div>
         <div className="text-container">
-          <h1 className="text-light display-4">Academic Analysis: Safe Option List</h1>
+        <h1 className="text-dark display-4 " style={{ fontFamily: 'Roboto, sans-serif', textShadow: '2px 2px 2px rgba(0, 0, 0, 0.3)', color: '#fff' }}>Academic Analysis: Safe Option List</h1>
         </div>
       </div>
     </header>
