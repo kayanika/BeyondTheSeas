@@ -14,6 +14,8 @@ const app=express();
 app.use(cors());
 app.use(express.json());    //takes the request body and parses it into json
 
+
+
 // app.get('/getUsers',async (req,res)=>{    //we used async because we are using await
     
 //     try{
@@ -118,7 +120,7 @@ app.use('/api/user/:userID/nonPersosoalized',nonPersonalizedRouter);
 
 
 
-const port=3001;
+const port=3000;
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 })
