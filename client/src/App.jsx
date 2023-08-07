@@ -9,8 +9,9 @@ import Sidebar from './components/sidebar';
 import view_profile_component from "./routes/view_profile_component";
 import view_shortlist from "./routes/view_shortlist";
 import forum from "./routes/forum";
-import home_page from "./routes/home_page";
+import Home from "./routes/Home";
 import Header from "./components/header";
+
 
 // import ViewProfile from './components/ViewProfile';
 // import ViewShortlist from './components/ViewShortlist';
@@ -39,7 +40,9 @@ const App = () => {
             <Route exact path="/api/user/:id/student-profile" Component={view_profile_component} />
             <Route exact path="/api/user/:id/view-shortlist" Component={view_shortlist} />
             <Route exact path="/api/user/:id/view-forum" Component={forum} />
-            <Route exact path="/api/user/:id/home" Component={home_page} />
+            <Route exact path="/api/user/:id/home" Component={Home} />
+
+
             
             
             

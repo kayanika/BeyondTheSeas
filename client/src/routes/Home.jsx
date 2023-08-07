@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+//import { FaSearch } from 'react-icons/fa';
 import img1 from './MIT-Gift-PRESS.png';
 import { Link } from 'react-router-dom';
 
