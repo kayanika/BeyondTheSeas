@@ -1,23 +1,29 @@
 import React, {useEffect, useContext} from 'react'
 import beyondTheSeas from '../apis/beyondTheSeas'
 import { UniversityContext } from '../context/universityContext'
+import { useParams } from 'react-router-dom'
 
 
 const AmbitiousUniversityList = (props) => {
+  const {userID} = useParams();
      const {universities, setUniversities} = useContext(UniversityContext)
-    useEffect(async() => {
+  useEffect(()=>{
+    
+    const fetchData= async() => {
 
     try{          
                 console.log("sending request to backend")
-               const response=await  beyondTheSeas.get('/:userID/personalized/ambitious');
+               const response=await  beyondTheSeas.get(`/personalized/${userID}/ambitious`);
                console.log("response from backend")
                setUniversities(response.data.data.universities);
                // console.log(response);
     } catch(err){
         console.log(err)
     }
-    },[]) //empty array so that it only runs once, when the component mounts
-  return (
+    };
+    fetchData(); //empty array so that it only runs once, when the component mounts
+  },[]);
+    return (
     <div className="list-group">
         <table className="table table-hover table-dark">
             <thead>

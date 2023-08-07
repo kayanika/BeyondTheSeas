@@ -9,7 +9,7 @@ const UniversityList = (props) => {
 
     try{          
                 console.log("sending request to backend")
-               const response=await  beyondTheSeas.get('/:userID/personalized/probable');
+               const response=await  beyondTheSeas.get('/personalized/:userID/probable');
                console.log("response from backend")
                setUniversities(response.data.data.universities);
                // console.log(response);

@@ -3,9 +3,9 @@ const router=require('express-promise-router')();
 const nonPersonalizedController=require('../controller/nonPersonalized');
 
 
-router.route('/').get(nonPersonalizedController.getNonPersonalized);
+router.route('/:userID').get(nonPersonalizedController.getNonPersonalized);
 //router.route('/filter').get(nonPersonalizedController.getNonPersonalized);
-router.route('/:filterOption').get(nonPersonalizedController.getNonPersonalizedFiltered);
+router.route('/:userID/:filterOption').get(nonPersonalizedController.getNonPersonalizedFiltered);
 
 
 module.exports=router;

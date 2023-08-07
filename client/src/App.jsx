@@ -35,14 +35,14 @@ const App = () => {
   <div>
     <Router>
         <Routes>
-            <Route exact path="/api/user/:userID/nonPersonalized" Component={home_analysis} />
-            <Route exact path="/api/user/:userID/personalized/ambitious" Component={analysis_too_ambitious} />
-            <Route exact path="/api/user/:userID/personalized/safe" Component={analysis_safe_option} />
-            <Route exact path="/api/user/:userID/personalized/probable" Component={analysis_probable_chances} />
-            <Route exact path="/api/user/:userID/student-profile" Component={view_profile_component} />
-            <Route exact path="/api/user/:userID/view-shortlist" Component={view_shortlist} />
-            <Route exact path="/api/user/:userID/view-forum" Component={forum} />
-            <Route exact path="/api/user/:userID/home" Component={home_page} />
+            <Route exact path="/api/user/nonPersonalized/:userID" Component={home_analysis} />
+            <Route exact path="/api/user/personalized/:userID/ambitious" Component={analysis_too_ambitious} />
+            <Route exact path="/api/user/personalized/:userID/safe" Component={analysis_safe_option} />
+            <Route exact path="/api/user/personalized/:userID/probable" Component={analysis_probable_chances} />
+            <Route exact path="/api/user/student-profile/:userID" Component={view_profile_component} />
+            <Route exact path="/api/user/view-shortlist/:userID" Component={view_shortlist} />
+            <Route exact path="/api/user/view-forum/:userID" Component={forum} />
+            <Route exact path="/api/user/home/:userID" Component={home_page} />
             
             
             

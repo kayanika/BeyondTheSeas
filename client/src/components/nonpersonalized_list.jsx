@@ -1,35 +1,62 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
+import beyondTheSeas from '../apis/beyondTheSeas'
+import { UniversityContext } from '../context/universityContext'
+import {useParams} from 'react-router-dom'
 
 
-const UniversityList = () => {
+const NonPersonalizedUniversityList = (props) => {
+    const {userID} = useParams();
+   
+     const {universities, setUniversities} = useContext(UniversityContext)
+  useEffect(()=>{
+    
+    const fetchData= async() => {
+
+    try{          
+                console.log("sending request to backend")
+               const response=await  beyondTheSeas.get(`/nonPersonalized/${userID}`);
+               console.log("response from backend")
+               setUniversities(response.data.data.universities);
+               // console.log(response);
+    } catch(err){
+        console.log(err)
+    }
+    };
+    fetchData(); //empty array so that it only runs once, when the component mounts
+  },[]);
+     //empty array so that it only runs once, when the component mounts
   return (
     <div className="list-group">
         <table className="table table-hover table-dark">
             <thead>
             <tr style={{ backgroundColor: '#007bff', color: 'white' }}>
                     <th scope="col">University Name</th>
-                    <th scope="col">Country</th>
+                   
                     <th scope="col">Rank</th>
-                    <th scope="col">Tuition Fees</th>
-                    <th scope="col">Cutoff cgpa</th>
-                    <th scope="col">Cutoff gre</th>
-                    <th scope="col">Available Scholarship</th>
+                  
+                   
+                    <th scope="col">Website link</th>
+                    <th scope="col">Location</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-active">
-                    <td>University of Toronto</td>
-                    <td>Canada</td>
-                    <td>1</td>
-                    <td>50,000</td>
-                    <td>3.5</td>
-                    <td>320</td>
-                    <td>Yes</td>
-                </tr>
+                
+             {  universities.map((university) => { 
+               return (<tr>
+                  <td>{university.name}</td>
+                  <td>{university.cs_ranking}</td>
+                  <td>{university.website_link}</td>
+                    <td>{university.location}</td>
+                
+               </tr>
+               )
+}   )
+}
+
             </tbody>
         </table>
     </div>
   )
 }
 
-export default UniversityList
+export default NonPersonalizedUniversityList
