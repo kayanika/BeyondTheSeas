@@ -7,8 +7,8 @@ const router=require('express-promise-router')();
 
 
 //router.route('/').get(PersonalizedController.getPersonalized);
-router.route('/probable').get(PersonalizedController.getProbable);
-router.route('/safe').get(PersonalizedController.getSafe);
-router.route('/ambitious').get(PersonalizedController.getAmbitious);
+router.route('/:userID/probable').get(PersonalizedController.getProbable);
+router.route('/:userID/safe').get(PersonalizedController.getSafe);
+router.route('/:userID/ambitious').get(PersonalizedController.getAmbitious);
 
 module.exports=router;

@@ -37,6 +37,7 @@ const App = () => {
     <Router>
         <Routes>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Route exact path="/api/user/:id/non-personalized-recommendation" Component={home_analysis} />
             <Route exact path="/api/user/:id/personalized-recommendation/ambitious" Component={analysis_too_ambitious} />
             <Route exact path="/api/user/:id/personalized-recommendation/safe" Component={analysis_safe_option} />
@@ -57,6 +58,16 @@ const App = () => {
             <Route exact path="/api/user/:userID/view-forum" Component={forum} />
             <Route exact path="/api/user/:userID/home" Component={home_page} />
 >>>>>>> 064b7f5f0eb675cb7d72ef2879f31ac3afe454d3
+=======
+            <Route exact path="/api/user/nonPersonalized/:userID" Component={home_analysis} />
+            <Route exact path="/api/user/personalized/:userID/ambitious" Component={analysis_too_ambitious} />
+            <Route exact path="/api/user/personalized/:userID/safe" Component={analysis_safe_option} />
+            <Route exact path="/api/user/personalized/:userID/probable" Component={analysis_probable_chances} />
+            <Route exact path="/api/user/student-profile/:userID" Component={view_profile_component} />
+            <Route exact path="/api/user/view-shortlist/:userID" Component={view_shortlist} />
+            <Route exact path="/api/user/view-forum/:userID" Component={forum} />
+            <Route exact path="/api/user/home/:userID" Component={home_page} />
+>>>>>>> 6050b38b3ad112ba8941c77ab5a8bbe7215914d6
             
             
             
