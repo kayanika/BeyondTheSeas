@@ -3,7 +3,7 @@ import Header from '../components/safeOptionHeader';
 import Sidebar from '../components/sidebar';
 import SafeUniversityList from '../components/safe_university_list';
 
-const analysis_safe_option = () => {
+const AnalysisSafeOption = () => {
   return (
     <div className="home-analysis-container">
     <Header />
@@ -19,4 +19,4 @@ const analysis_safe_option = () => {
   );
 }
 
-export default analysis_safe_option
+export default AnalysisSafeOption

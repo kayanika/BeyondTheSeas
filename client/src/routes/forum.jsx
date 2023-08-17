@@ -1,6 +1,6 @@
 import React from 'react'
 
-const forum = () => {
+const Forum = () => {
   return (
     <div>
       forum
@@ -8,4 +8,4 @@ const forum = () => {
   )
 }
 
-export default forum
+export default Forum

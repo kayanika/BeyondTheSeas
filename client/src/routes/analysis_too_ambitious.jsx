@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar';
 
 import AmbitiousUniversityList from '../components/ambitious_university_list';
 
-const analysis_too_ambitious = () => {
+const AnalysisTooAmbitious = () => {
   return (
     <div className="home-analysis-container">
     <Header />
@@ -20,4 +20,4 @@ const analysis_too_ambitious = () => {
   );
 }
 
-export default analysis_too_ambitious
+export default AnalysisTooAmbitious
