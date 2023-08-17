@@ -14,6 +14,16 @@ class userInfo{
         return result;
     }
 
+        
+
+    getUser=async function(userName,password){
+        const query="SELECT * FROM public.user WHERE \"Name\"=$1 AND \"Password\"=$2";
+        const params=[userName,password];
+        const result=await db.query(query,params);
+        return result;
+    } 
+
+
     
     
 }
