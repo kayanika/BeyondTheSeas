@@ -1,6 +1,6 @@
 import React from 'react'
 
-const view_shortlist = () => {
+const ViewShortlist = () => {
   return (
     <div>
       shortlisted universities
@@ -8,4 +8,4 @@ const view_shortlist = () => {
   )
 }
 
-export default view_shortlist
+export default ViewShortlist
