@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar';
 import ProbableUniversityList from '../components/probable_university_list';
 
 
-const analysis_probable_chances = () => {
+const AnalysisProbableChances = () => {
   return (
     <div className="home-analysis-container">
     <Header />
@@ -20,4 +20,4 @@ const analysis_probable_chances = () => {
   );
 }
 
-export default analysis_probable_chances
+export default AnalysisProbableChances

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const view_profile_component = () => {
+const ViewProfileComponent = () => {
   return (
     <div>
       view profile component
@@ -8,4 +8,4 @@ const view_profile_component = () => {
   )
 }
 
-export default view_profile_component
+export default ViewProfileComponent

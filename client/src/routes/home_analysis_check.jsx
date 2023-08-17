@@ -1,6 +1,3 @@
-
-import Header from '../components/header';
-import Sidebar from '../components/sidebar';
 import {useState} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -23,13 +20,6 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import UniversityList from '../components/nonpersonalized_list';
 import { AiFillHome } from 'react-icons/ai';
-import { IoPersonCircleSharp } from 'react-icons/io5';
-import '../components/index.css'
-import ViewProfileComponent from './view_profile_component';
-import { FaClipboardList } from 'react-icons/fa';
-import ViewShortlist from './view_shortlist';
-import {MdForum} from 'react-icons/md';
-import Forum from './forum';
 
 const drawerWidth = 240;
 
@@ -100,7 +90,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [menudata, setMenudata] =useState("Home");
 
   const handleDrawerOpen = () => {
@@ -112,21 +102,24 @@ export default function MiniDrawer() {
   };
 
   return (
-  <>
-    <Box sx={{ display: 'flex' , color: 'success.dark' }} >
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{backgroundColor:"#578039"}}>
+      <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={()=>{setOpen(!open)}}
+            onClick={handleDrawerOpen}
             edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Beyond The Seas
+            Mini variant drawer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -137,110 +130,67 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List component="nav">
+        <List>
          
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Home")}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+            <ListItem  disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
                 }}
               >
-                <AiFillHome />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("viewProfile")}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <IoPersonCircleSharp />
-              </ListItemIcon>
-              <ListItemText primary="View Profile" />
-            </ListItemButton>
-          </ListItem>
-
-
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("shortList")}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <FaClipboardList />
-              </ListItemIcon>
-              <ListItemText primary="View ShortList" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("forum")}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <MdForum />
-              </ListItemIcon>
-              <ListItemText primary="Forum" />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <AiFillHome />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
           
         </List>
         <Divider />
         
       </Drawer>
-      <Box className="background-box" component="main"  sx={{ flexGrow: 1, p: 3 }}>
-        <drawerHeader />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                   {menudata==="Home" && <UniversityList/>}
-                  {menudata==="viewProfile" && <ViewProfileComponent/>}
-                  {menudata==="shortList" && <ViewShortlist/>}
-                  {menudata==="forum" && <Forum />}
       </Box>
     </Box>
-  </>
   );
 }
 
+// import React from 'react';
+// import Header from '../components/header';
+// import Sidebar from '../components/sidebar';
+// import PersonalizedChoiceBar from '../components/personalizedCoiceBar';
+// import UniversityList from '../components/nonpersonalized_list';
 
 
 
+// const HomeAnalysis = (props) => {
 
+//   return (
+    
+//     <div className="home-analysis-container">
+//       <Header />
+//       <div className="sidebar-and-content">
+//         <Sidebar />
+//         <div className="content-container">
+//           <UniversityList />
+//           {/* Add your content specific to the home_analysis page here */}
+//           {/* For example, analysis details, charts, etc. */}
+//         </div>
+//         <div className="personalizedCoiceBar">
+//           <PersonalizedChoiceBar/>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HomeAnalysis;
