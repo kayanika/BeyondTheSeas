@@ -44,6 +44,18 @@ class forumInfo{
 
 
 }
+    postQuestion= async function(userID,question) {
+        console.log("inside postQuestion in database");
+        console.log(userID);
+        console.log(question);
+        const query = "INSERT INTO questions(student_id, keywords, question_text) VALUES($1,$2) returning * ";
+        const params = [userID,question];
+        const result = await db.query(query, params);
+        return result;
+    }
+    postAnswer= async function(userID,questionID,answer) {
+        console.log("inside postAnswer in database");
+        
 }
 
 exports.forumInfo=forumInfo;   //export the class forumInfo
