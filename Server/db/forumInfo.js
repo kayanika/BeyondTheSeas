@@ -4,13 +4,14 @@ class forumInfo{
     constructor(){  
     }
     getQuestions= async function() {
-        const query = "SELECT question_id, question_text FROM questions ;";
+        const query = "SELECT question_id, question_text,student_id FROM questions ;";
         const params = [];
         const result = await db.query(query, params);
         return result;
     }
 
     searchTopic= async function(keywords) {
+        try{
         console.log("inside searchTopic in database");
         console.log(keywords);
         const query = `
@@ -40,7 +41,10 @@ class forumInfo{
         const params = [keywords];
         const result = await db.query(query, params );
         console.log(result);
-        return result;
+        return result;}
+        catch(err){
+            console.log(err);
+        }
 
 
 }
@@ -57,11 +61,21 @@ class forumInfo{
         console.log("inside postAnswer in database");
         console.log(userID);
         console.log(questionID);
-        const query = "INSERT INTO answers(student_id, question_id, answer_text) VALUES($1,$2,$3) returning * ";
+        const query = "INSERT INTO answers( question_id, student_id, answer_text) VALUES($1,$2,$3) returning * ";
         const params = [userID,questionID,answer];
         const result = await db.query(query, params);
         return result;
     }
+
+    getAnswers= async function(questionID) {
+        console.log("inside getAnswers in database");
+        console.log(questionID);
+        const query = "SELECT answer_id, answer_text,student_id FROM answers WHERE question_id=$1";
+        const params = [questionID];
+        const result = await db.query(query, params);
+        return result;
+    }
+
 
 }
 
