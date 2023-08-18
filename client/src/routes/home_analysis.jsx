@@ -1,6 +1,5 @@
 
-import Header from '../components/header';
-import Sidebar from '../components/sidebar';
+
 import {useState} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -19,8 +18,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import UniversityList from '../components/nonpersonalized_list';
 import { AiFillHome } from 'react-icons/ai';
 import { IoPersonCircleSharp } from 'react-icons/io5';
@@ -156,7 +153,7 @@ export default function MiniDrawer() {
               >
                 <AiFillHome />
               </ListItemIcon>
-              <ListItemText primary="Home" />
+              <ListItemText primary={open ? "Home" : ""} />
             </ListItemButton>
           </ListItem>
 
@@ -177,7 +174,7 @@ export default function MiniDrawer() {
               >
                 <IoPersonCircleSharp />
               </ListItemIcon>
-              <ListItemText primary="View Profile" />
+              <ListItemText primary={open ? "View Profile" : ""} />
             </ListItemButton>
           </ListItem>
 
@@ -199,7 +196,7 @@ export default function MiniDrawer() {
               >
                 <FaClipboardList />
               </ListItemIcon>
-              <ListItemText primary="View ShortList" />
+              <ListItemText primary={open ? "View ShortList" : ""} />
             </ListItemButton>
           </ListItem>
 
@@ -220,7 +217,7 @@ export default function MiniDrawer() {
               >
                 <MdForum />
               </ListItemIcon>
-              <ListItemText primary="Forum" />
+              <ListItemText primary={open ? "Forum" : ""} />
             </ListItemButton>
           </ListItem>
           
