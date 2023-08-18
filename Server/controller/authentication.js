@@ -25,7 +25,7 @@ exports.signup = async (req, res, next) => {
 exports.verifyLogin = async (req, res, next) => {
     try {
         console.log("inside postLogin");
-        const result = await user.getUser(req.body.userName);
+        const result = await user.getUser(req.body.userName,req.body.password);
         console.log("got the result back from database");
         console.log(result);
         res.status(201).json({
