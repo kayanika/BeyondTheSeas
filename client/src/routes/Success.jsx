@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import Dialog from '@mui/material/Dialog';
+import AppBar from '@mui/material/AppBar';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 
 export class Success extends Component {
   continue = e => {

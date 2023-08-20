@@ -15,7 +15,7 @@ import header from "../components/header";
 
 const theme = createTheme();
 
-export class FormUserDetails extends Component {
+export class FormAcademicDetails extends Component {
   state = {
     values: {
       Name: '',
@@ -43,6 +43,11 @@ export class FormUserDetails extends Component {
     this.props.nextStep();
   };
 
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+
   render() {
     const { values } = this.state;
 
@@ -54,7 +59,7 @@ export class FormUserDetails extends Component {
          
         <Dialog open fullWidth maxWidth='sm'>
           <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <h2>Enter User Details</h2>
+            <h2>Enter Academic Details</h2>
             
             
 
@@ -64,12 +69,11 @@ export class FormUserDetails extends Component {
 
          
           <TextField
-            placeholder="Name"
-            label="Name"
-            floatingLabelText="Name"
-            value={values.Name}
-            onChange={this.handleChange('Name')}
-            defaultValue={values.Name}
+            placeholder="CGPA"
+            label="CGPA"
+            value={values.CGPA}
+            onChange={this.handleChange('CGPA')}
+            defaultValue={values.CGPA}
             margin="normal"
             fullWidth
             style={{ backgroundColor: '#E5FFCC' ,padding: '5px',}}
@@ -181,4 +185,4 @@ export class FormUserDetails extends Component {
   }
 }
 
-export default FormUserDetails;
+export default FormAcademicDetails;
