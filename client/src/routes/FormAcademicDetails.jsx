@@ -9,7 +9,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import header from "../components/header";
-import { DatePicker, LocalizationProvider } from '@mui/lab';
+
 
 
 
@@ -59,7 +59,7 @@ export class FormAcademicDetails extends Component {
         <header2/>
          
         <Dialog open fullWidth maxWidth='sm'>
-          <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,color:'#99FF33'}}>
             <h2>Enter Academic Details</h2>
             
             
@@ -125,35 +125,38 @@ export class FormAcademicDetails extends Component {
             style={{ backgroundColor: '#E5FFCC',padding: '5px', }}
           />
           <TextField
-            placeholder="Address"
-            label="Address"
-            value={values.Address}
-            onChange={this.handleChange('Address')}
-            defaultValue={values.Address}
+            placeholder="Preferred Tuiton Fees"
+            label="Tuiton Fees"
+            value={values.fees}
+            onChange={this.handleChange('fees')}
+            defaultValue={values.fees}
             margin="normal"
             fullWidth
             style={{ backgroundColor: '#E5FFCC',padding: '5px', }}
           />
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-        placeholder="Year of Passing"
-          label="Year of Passing"
-          value={values.year}
-          onChange={this.handleChange('year')}
-          renderInput={params => <TextField {...params} margin="normal" fullWidth />}
-        />
-      </LocalizationProvider>
+           <Button
+              color="secondary"
+              variant="contained"
+              onClick={this.back}
+              style={{
+                backgroundColor: '#B2FF66',
+                fontWeight: 'bold',
+              }}
+            >Back</Button>
           
           <Button
             label="Continue"
             color="primary"
             variant="contained"
+            
+            
             primary={true}
 
             onClick={this.continue}
             style={{
               backgroundColor: '#0080FF',
-              fontWeight: 'bold', // Make the button text bold
+              fontWeight: 'bold', 
+              // Make the button text bold
             }}
           >
             Continue
