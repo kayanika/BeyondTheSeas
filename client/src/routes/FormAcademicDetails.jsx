@@ -9,6 +9,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import header from "../components/header";
+import { DatePicker, LocalizationProvider } from '@mui/lab';
 
 
 
@@ -80,22 +81,22 @@ export class FormAcademicDetails extends Component {
           />
           
           <TextField
-            placeholder="Enter Your Age"
-            label="Age"
-            value={values.Age}
-            onChange={this.handleChange('Age')}
+            placeholder="Enter Your Field Of Interest"
+            label="Field Of Interest"
+            value={values.Field_Of_Interest}
+            onChange={this.handleChange('Field_Of_Interest')}
             margin="normal"
             fullWidth
-            inputProps={{ type: 'number' }}
-            defaultValue={values.Age}
+            
+            defaultValue={values.Field_Of_Interest}
             style={{ backgroundColor: '#E5FFCC',padding: '5px', }}
           />
           <TextField
-            placeholder="Enter Your Occupation"
-            label="Job"
-            value={values.Job}
-            onChange={this.handleChange('Job')}
-            defaultValue={values.Job}
+            placeholder="Enter Your GRE Score"
+            label="GRE Score"
+            value={values.GRE_Score}
+            onChange={this.handleChange('GRE_Score')}
+            defaultValue={values.GRE_Score}
             margin="normal"
             fullWidth
            
@@ -103,54 +104,26 @@ export class FormAcademicDetails extends Component {
           />
           
           <TextField
-            placeholder="Institution"
-            label="Institution"
-            value={values.Institution}
-            onChange={this.handleChange('Institution')}
-            defaultValue={values.Institution}
+            placeholder="Your GitHub Profile Link"
+            label="GitHub Profile"
+            value={values.github}
+            onChange={this.handleChange('github')}
+            defaultValue={values.github}
             margin="normal"
             fullWidth
             style={{ backgroundColor: '#E5FFCC' ,padding: '5px',}}
           />
           
           <TextField
-            placeholder="Department"
-            label="Department"
-            value={values.Department}
-            onChange={this.handleChange('Department')}
-            defaultValue={values.Department}
+            placeholder="Project Publication Link"
+            label="Project Publication Link"
+            value={values.Project}
+            onChange={this.handleChange('Project')}
+            defaultValue={values.Project}
             margin="normal"
             fullWidth
             style={{ backgroundColor: '#E5FFCC',padding: '5px', }}
           />
-            <TextField
-             placeholder="Gender"
-              label="Gender"
-              value={values.gender}
-              fullWidth
-              style={{
-                backgroundColor: '#E5FFCC',
-                marginTop: '5px',
-                padding: '5px',
-              }}
-              SelectProps={{
-                value: values.gender,
-                onChange: this.handleChange('gender'),
-                
-              }}
-              select
-            >
-              <MenuItem value="">
-                
-              </MenuItem>
-              <MenuItem value="male">Male</MenuItem>
-              <MenuItem value="female">Female</MenuItem>
-              <MenuItem value="other">Other</MenuItem>
-              defaultValue={values.gender}
-            </TextField>
-
-
-        
           <TextField
             placeholder="Address"
             label="Address"
@@ -161,6 +134,15 @@ export class FormAcademicDetails extends Component {
             fullWidth
             style={{ backgroundColor: '#E5FFCC',padding: '5px', }}
           />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DatePicker
+        placeholder="Year of Passing"
+          label="Year of Passing"
+          value={values.year}
+          onChange={this.handleChange('year')}
+          renderInput={params => <TextField {...params} margin="normal" fullWidth />}
+        />
+      </LocalizationProvider>
           
           <Button
             label="Continue"
