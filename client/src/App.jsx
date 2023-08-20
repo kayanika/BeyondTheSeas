@@ -38,8 +38,8 @@ const App = () => {
             <Route path="/api/user/view-shortlist/:userID" element={<ViewShortlist />} />
             <Route path="/api/user/view-forum/:userID" element={<Forum />} />
             <Route path="/api/user/home/:userID" element={<HomePage />} />
-            <Route path="/api/user/login:userID" element={<Login />} />
-            <Route path="/api/user/register:userID" element={<Register />} />
+            <Route path="/api/user/login" element={<Login />} />
+            <Route path="/api/user/register" element={<Register />} />
             <Route path="/api/user/forgot-password" element={<ForgotPassword />} />
             
           

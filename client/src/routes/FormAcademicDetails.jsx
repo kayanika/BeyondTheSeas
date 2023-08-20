@@ -65,10 +65,6 @@ export class FormAcademicDetails extends Component {
             
 
           </AppBar>
-
-          
-
-         
           <TextField
             placeholder="CGPA"
             label="CGPA"

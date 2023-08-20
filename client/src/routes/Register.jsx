@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import bg from "../images/signin.svg";
+import bg from "../images/test.png";
 import bgimg from "../images/backimg.jpg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -85,8 +85,11 @@ export default function Register() {
         style={{
           backgroundImage: `url(${bgimg})`,
           backgroundSize: "cover",
-          height: "100vh",
-          color: "#8A9A5B",
+          marginTop: "30px",
+          marginLeft: "25px",
+          marginRight: "25px",
+          height: "63vh",
+          color: "#f5f5f5",
         }}
       >
         <Box sx={boxstyle}>
@@ -100,7 +103,7 @@ export default function Register() {
                   marginLeft: "15px",
                   marginRight: "15px",
                   height: "63vh",
-                  color: "#8A9A5B",
+                  color: "#66B2FF",
                 }}
               ></Box>
             </Grid>

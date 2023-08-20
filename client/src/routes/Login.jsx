@@ -92,11 +92,15 @@ export default function Login() {
           color: "#f5f5f5",
         }}
       >
-      <Box display="flex" flexDirection="column" alignItems="center" >
-      <Typography variant="h3" className="text-dark display-4" style={{ color: '#8A9A5B', fontStyle: 'italic'  }}>
-        Welcome!Explore the world of Education with Us.
+     <Box display="flex" flexDirection="column" alignItems="center">
+      <Typography
+        variant="h3"
+        className="text-dark display-4"
+        style={{ color: '#8A9A5B', fontStyle: 'italic', marginTop: '60px' }}
+      >
+        Welcome! Explore the world of Education with Us.
       </Typography>
-     
+   
     </Box>
         <Box sx={boxstyle}>
           <Grid container>

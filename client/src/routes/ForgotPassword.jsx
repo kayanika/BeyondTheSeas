@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import bg from "../images/signin.svg";
-import bgimg from "../images/backimg.jpg";
+import bg from "../images/login.png";
+import bgimg from "../images/background3.jpg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -167,7 +167,9 @@ export default function ForgotPassword() {
                             <Typography
                               variant="body1"
                               component="span"
-                              style={{ marginTop: "10px" }}
+                              style={{ marginTop: "10px",
+                            marginLeft: "40px",
+                          marginRight: "10px", }}
                             >
                               Login to your Account.
                               <span

@@ -8,7 +8,7 @@ import img from "../images/background4.jpg";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
-import header from "../components/header";
+import Header from "./Header";
 
 
 
@@ -50,7 +50,7 @@ export class FormUserDetails extends Component {
       <ThemeProvider theme={theme}>
         <React.Fragment>
         <div className="home-analysis-container">
-        <header2/>
+        <Header/>
          
         <Dialog open fullWidth maxWidth='sm'>
           <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
