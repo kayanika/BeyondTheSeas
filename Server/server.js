@@ -109,9 +109,10 @@ const forumRouter=require('./routes/forum');
 
 app.use('/api/user/personalized',personalizedRouter);
 app.use('/api/user/nonPersonalized',nonPersonalizedRouter);
+//app.use('/api/user/form-academic-details/:userID',)
 //app.use('/api/user/:userID/activity',activityRouter); 
 app.use('/api/user/view-forum',forumRouter); 
-//app.use('/api/user',authRouter);
+app.use('/api/user',authRouter);
 
 
                                                                               

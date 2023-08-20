@@ -22,9 +22,12 @@ class forumInfo{
         console.log("inside searchTopic in database");
         console.log(keywords);
         const query = `
-        SELECT q.question_id,q.question_text, a.answer_text
+   
+SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.username as questioner
         FROM questions q
         LEFT JOIN answers a ON q.question_id = a.question_id
+        INNER JOIN student s ON a.student_id = s.student_id
+        INNER JOIN student p ON q.student_id = p.student_id
         
         WHERE (
             SELECT COUNT(DISTINCT keyword)
@@ -32,14 +35,13 @@ class forumInfo{
             CROSS JOIN unnest(string_to_array(k, ' ')) keyword
             WHERE Lower(keyword) = ANY($1::text[])
         ) > 0
-        GROUP BY q.question_id,q.question_text, a.answer_text
+        GROUP BY q.question_id,q.question_text, a.answer_text , s.username , p.username
         ORDER BY (
             SELECT COUNT(DISTINCT keyword)
             FROM unnest(q.keywords) k
             CROSS JOIN unnest(string_to_array(k, ' ')) keyword
             WHERE Lower(keyword) = ANY($1::text[])
         ) DESC;
-        
 
 
 
