@@ -25,6 +25,7 @@ const App = () => {
             <Route path="/api/user/view-shortlist/:userID" element={<ViewShortlist />} />
             <Route path="/api/user/view-forum/:userID" element={<Forum />} />
             <Route path="/api/user/home/:userID" element={<HomePage />} />
+            
           </Routes>
         </Router>
       </div>

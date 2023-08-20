@@ -17,6 +17,8 @@ const Forum = () => {
     // Add more questions and answers as needed
   ]);
 
+  
+
   const [newQuestion, setNewQuestion] = useState('');
   const [newAnswer, setNewAnswer] = useState('');
 
