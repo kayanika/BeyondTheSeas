@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import bg from "../images/signin.svg";
-import bgimg from "../images/background4.jpg";
+import bgimg from "../images/backimg.jpg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -17,8 +17,6 @@ import Stack from "@mui/material/Stack";
 import MuiAlert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import { useNavigate } from "react-router-dom";
-import SocialIcons from "./socialIcon.jsx"
-
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -38,16 +36,16 @@ const boxstyle = {
   width: "75%",
   height: "70%",
   bgcolor: "background.paper",
-  boxShadow:24,
+  boxShadow: 24,
 };
 
 const center = {
   position: "relative",
   top: "50%",
-  left: "37%",
+  left: "30%",
 };
 
-export default function Login() {
+export default function ForgotPassword() {
   const [open, setOpen] = useState(false);
   const [remember, setRemember] = useState(false);
   const vertical = "top";
@@ -92,12 +90,6 @@ export default function Login() {
           color: "#f5f5f5",
         }}
       >
-      <Box display="flex" flexDirection="column" alignItems="center" >
-      <Typography variant="h3" className="text-dark display-4" style={{ color: '#8A9A5B', fontStyle: 'italic'  }}>
-        Welcome!Explore the world of Education with Us.
-      </Typography>
-     
-    </Box>
         <Box sx={boxstyle}>
           <Grid container>
             <Grid item xs={12} sm={12} lg={6}>
@@ -109,7 +101,7 @@ export default function Login() {
                   marginLeft: "15px",
                   marginRight: "15px",
                   height: "63vh",
-                  color: "#f5f5f5",
+                  color: "#8A9A5B",
                 }}
               ></Box>
             </Grid>
@@ -127,12 +119,12 @@ export default function Login() {
                     <Box height={35} />
                     <Box sx={center}>
                       <Avatar
-                        sx={{ ml: "35px", mb: "4px", bgcolor: "#ffffff" }}
+                        sx={{ ml: "85px", mb: "4px", bgcolor: "#ffffff" }}
                       >
                         <LockOutlinedIcon />
                       </Avatar>
                       <Typography component="h1" variant="h4">
-                        Sign In
+                        Reset Password
                       </Typography>
                     </Box>
                     <Box
@@ -147,41 +139,10 @@ export default function Login() {
                             required
                             fullWidth
                             id="email"
-                            label="Username"
+                            label="Email"
                             name="email"
                             autoComplete="email"
                           />
-                        </Grid>
-                        <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
-                          <TextField
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="new-password"
-                          />
-                        </Grid>
-                        <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
-                          <Stack direction="row" spacing={2}>
-                            <FormControlLabel
-                              sx={{ width: "60%" }}
-                              onClick={() => setRemember(!remember)}
-                              control={<Checkbox checked={remember} />}
-                              label="Remember me"
-                            />
-                            <Typography
-                              variant="body1"
-                              component="span"
-                              onClick={() => {
-                                navigate("/api/user/forgot-password");
-                              }}
-                              style={{ marginTop: "10px", cursor: "pointer" }}
-                            >
-                              Forgot password?
-                            </Typography>
-                          </Stack>
                         </Grid>
                         <Grid item xs={12} sx={{ ml: "5em", mr: "5em" }}>
                           <Button
@@ -190,7 +151,7 @@ export default function Login() {
                             fullWidth="true"
                             size="large"
                             sx={{
-                              mt: "10px",
+                              mt: "15px",
                               mr: "20px",
                               borderRadius: 28,
                               color: "#ffffff",
@@ -198,7 +159,7 @@ export default function Login() {
                               backgroundColor: "#FF9A01",
                             }}
                           >
-                            Sign in
+                            Send Reset Link
                           </Button>
                         </Grid>
                         <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
@@ -208,21 +169,15 @@ export default function Login() {
                               component="span"
                               style={{ marginTop: "10px" }}
                             >
-                              Not registered yet?{" "}
+                              Login to your Account.
                               <span
                                 style={{ color: "#beb4fb", cursor: "pointer" }}
                                 onClick={() => {
-                                  navigate("/api/user/register");
+                                  navigate("/api/user/login");
                                 }}
                               >
-                                Create an Account
-                                <div className="social -icon">
-                                <SocialIcons/>
-                                </div>
+                                {" "}Sign In
                               </span>
-                              
-                              
-                              
                             </Typography>
                           </Stack>
                         </Grid>
