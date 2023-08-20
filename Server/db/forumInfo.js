@@ -48,12 +48,12 @@ class forumInfo{
 
 
 }
-    postQuestion= async function(userID,question) {
+    postQuestion= async function(userID,keywords,question) {
         console.log("inside postQuestion in database");
         console.log(userID);
         console.log(question);
-        const query = "INSERT INTO questions(student_id, keywords, question_text) VALUES($1,$2) returning * ";
-        const params = [userID,question];
+        const query = "INSERT INTO questions(student_id, keywords, question_text) VALUES($1,$2,$3) returning * ";
+        const params = [userID,keywords,question];
         const result = await db.query(query, params);
         return result;
     }
@@ -62,7 +62,7 @@ class forumInfo{
         console.log(userID);
         console.log(questionID);
         const query = "INSERT INTO answers( question_id, student_id, answer_text) VALUES($1,$2,$3) returning * ";
-        const params = [userID,questionID,answer];
+        const params = [questionID,userID,answer];
         const result = await db.query(query, params);
         return result;
     }
@@ -74,6 +74,23 @@ class forumInfo{
         const params = [questionID];
         const result = await db.query(query, params);
         return result;
+    }
+
+    getOneQUestion= async function(questionID) {
+        console.log("inside getOneQUestion in database");
+        console.log(questionID);
+        const query = `SELECT
+        a.answer_id,
+        a.student_id,
+        a.answer_text
+      FROM
+        answers a
+      WHERE
+        a.question_id = $1; `;
+        const params = [questionID];
+        const result = await db.query(query, params);
+        return result;
+
     }
 
 
