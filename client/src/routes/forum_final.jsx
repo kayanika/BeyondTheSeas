@@ -28,8 +28,6 @@ import ViewShortlist from './view_shortlist';
 import {MdForum} from 'react-icons/md';
 import Forum from '../components/forum';
 import AmbitiousUniversityList from '../components/ambitious_university_list';
-import ProbableUniversityList from '../components/probable_university_list';
-import SafeUniversityList from '../components/safe_university_list';
 import { useParams } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -103,7 +101,7 @@ export default function MiniDrawer() {
   const { userID } = useParams();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [menudata, setMenudata] =useState("safeHome");
+  const [menudata, setMenudata] =useState("forum");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -141,7 +139,7 @@ export default function MiniDrawer() {
         <Divider />
         <List component="nav">
          
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Home")}>
+          <ListItem  disablePadding sx={{ display: 'block' }}  onClick={() => window.location.href = `/api/user/nonPersonalized/${userID}`}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -162,7 +160,7 @@ export default function MiniDrawer() {
             </ListItemButton>
           </ListItem>
 
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("viewProfile")}>
+          <ListItem  disablePadding sx={{ display: 'block' }}onClick={() => window.location.href = `/api/user/student-profile/${userID}`}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -184,7 +182,7 @@ export default function MiniDrawer() {
           </ListItem>
 
 
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("shortList")}>
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={() => window.location.href = `/api/user/view-shortlist/${userID}`}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -205,7 +203,7 @@ export default function MiniDrawer() {
             </ListItemButton>
           </ListItem>
 
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={() => window.location.href = `/api/user/view-forum/${userID}`}>
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("forum")} >
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -232,11 +230,11 @@ export default function MiniDrawer() {
       </Drawer>
       <Box className="background-box" component="main"  sx={{ flexGrow: 1, p: 3 }}>
         <drawerHeader />
-                  {menudata==="safeHome" && <SafeUniversityList/>}
+                  {/* {menudata==="ambitiousHome" && <AmbitiousUniversityList/>}
                   {menudata==="Home" && <UniversityList/>}
                   {menudata==="viewProfile" && <ViewProfileComponent/>}
-                  {menudata==="shortList" && <ViewShortlist/>}
-                  {/* {menudata==="forum" && <Forum />} */}
+                  {menudata==="shortList" && <ViewShortlist/>} */}
+                  {menudata==="forum" && <Forum />}
       </Box>
     </Box>
   </>
