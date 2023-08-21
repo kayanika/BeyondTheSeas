@@ -46,14 +46,11 @@ const App = () => {
           
           
             
-            <Route path="/api/user/form-user-details:userID" element={<FormUserDetails />} />
-            <Route path="/api/user/form-academic-details:userID" element={<FormAcademicDetails />} />
+            
         
             <Route path="/api/user/user-form" element={<UserForm />} />
             <Route path="/api/user/social-icons" element={<SocialIcons />} />
-            <Route path="/api/user/success" element={<Success />} />
-            <Route path="/api/user/confirm" element={<Confirm />} />
-
+            
 
 
 

@@ -4,11 +4,11 @@ import AppBar from '@mui/material/AppBar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import img from "../images/background4.jpg";
+import img from "../images/th.jpg";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
-import header from "../components/header";
+import Header from "./Header";
 
 
 
@@ -45,16 +45,19 @@ handleChange = name => event => {
   };
 
   render() {
-    const { values } = this.state;
+    const { values } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
         <React.Fragment>
         <div className="home-analysis-container">
-        <header2/>
+        <Header/>
+        
+        
+        
          
         <Dialog open fullWidth maxWidth='sm'>
-          <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,color:'#99FF33'}}>
+          <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,color:'#ffffff'}}>
             <h2>Enter Academic Details</h2>
             
             
@@ -130,7 +133,7 @@ handleChange = name => event => {
               variant="contained"
               onClick={this.back}
               style={{
-                backgroundColor: '#B2FF66',
+                backgroundColor: '#66B2FF',
                 fontWeight: 'bold',
               }}
             >Back</Button>

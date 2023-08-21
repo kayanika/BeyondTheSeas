@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import { ThemeProvider, createTheme } from '@mui/material/styles'; // Correct import
 import { List, ListItem, ListItemText } from '@mui/material/';
 import Button from '@mui/material/Button';
+import Header from "./Header";
 
 const theme = createTheme();
 
@@ -35,13 +36,20 @@ handleChange = name => event => {
     return (
       <ThemeProvider theme={theme}> 
       <React.Fragment>
+      <div className="home-analysis-container">
+        <Header/>
        
           <Dialog
             open
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Confirm User Data" />
+            <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,color:'#ffffff'}}>
+            <h2>Confirm Data</h2>
+            
+            
+
+          </AppBar>
             <List>
               <ListItem>
                 <ListItemText primary="Name" secondary={name} />
@@ -86,14 +94,25 @@ handleChange = name => event => {
               color="secondary"
               variant="contained"
               onClick={this.back}
+              style={{
+                backgroundColor: '#66B2FF',
+                fontWeight: 'bold', 
+                // Make the button text bold
+              }}
             >Back</Button>
 
             <Button
               color="primary"
               variant="contained"
               onClick={this.continue}
+              style={{
+                backgroundColor: '#0080FF',
+                fontWeight: 'bold', 
+                // Make the button text bold
+              }}
             >Confirm & Continue</Button>
           </Dialog>
+          </div>
         </React.Fragment>
       </ThemeProvider>
     );

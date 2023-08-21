@@ -44,11 +44,13 @@ handleChange = name => event => {
 
     return (
       <ThemeProvider theme={theme}>
+        
         <React.Fragment>
         <div className="home-analysis-container">
         <Header/>
          
         <Dialog open fullWidth maxWidth='sm'>
+        
           <AppBar  position="static" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h2>Enter User Details</h2>
             

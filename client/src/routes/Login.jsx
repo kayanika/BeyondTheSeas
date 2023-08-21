@@ -100,7 +100,7 @@ export default function Login() {
       <Typography
         variant="h3"
         className="text-dark display-4"
-        style={{ color: '#8A9A5B', fontStyle: 'italic', marginTop: '60px' }}
+        style={{ color: '#8A9A5B', fontStyle: 'Roboto, sans-serif', marginTop: '60px' }}
       >
         Welcome! Explore the world of Education with Us.
       </Typography>

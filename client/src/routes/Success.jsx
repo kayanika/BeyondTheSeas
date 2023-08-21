@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles'; // Correct import
+
+const theme = createTheme();
 
 export class Success extends Component {
+
+
   continue = e => {
     e.preventDefault();
     // PROCESS FORM //
@@ -17,7 +21,7 @@ export class Success extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+      <ThemeProvider theme={theme}>
         <>
           <Dialog
             open
@@ -26,10 +30,10 @@ export class Success extends Component {
           >
             <AppBar title="Success" />
             <h1>Thank You For Your Submission</h1>
-            <p>You will get an email with further instructions.</p>
+            <p>You will get an update of your information in Your Profile.</p>
           </Dialog>
         </>
-      </MuiThemeProvider>
+      </ThemeProvider>
     );
   }
 }
