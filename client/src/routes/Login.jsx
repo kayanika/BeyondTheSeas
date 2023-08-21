@@ -18,6 +18,8 @@ import MuiAlert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import { useNavigate } from "react-router-dom";
 import SocialIcons from "./socialIcon.jsx"
+import Iconify from "./Iconify"
+import Header from "./Header";
 
 
 const Alert = forwardRef(function Alert(props, ref) {
@@ -80,9 +82,11 @@ export default function Login() {
         TransitionComponent={TransitionLeft}
         anchorOrigin={{ vertical, horizontal }}
       >
+
         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
           Failed! Enter correct username and password.
         </Alert>
+        
       </Snackbar>
       <div
         style={{
@@ -220,25 +224,37 @@ export default function Login() {
                                 }}
                               >
                                 Create an Account
-                                <div className="social -icon">
-                                <SocialIcons/>
+              <div className="social -icon">
+                 <Stack direction="row" spacing={2}>
+                    <Button fullWidth size="large" color="inherit" variant="outlined">
+                      <Iconify icon="eva:google-fill" color="#DF3E30" width={22} height={22} />
+                    </Button>
+
+                    <Button fullWidth size="large" color="inherit" variant="outlined">
+                      <Iconify icon="eva:facebook-fill" color="#1877F2" width={22} height={22} />
+                    </Button>
+
+                    <Button fullWidth size="large" color="inherit" variant="outlined">
+                      <Iconify icon="eva:twitter-fill" color="#1C9CEA" width={22} height={22} />
+                    </Button>
+                                 </Stack>
                                 </div>
                               </span>
-                              
-                              
-                              
                             </Typography>
                           </Stack>
                         </Grid>
                       </Grid>
                     </Box>
+                    
                   </Container>
+
                 </ThemeProvider>
               </Box>
             </Grid>
           </Grid>
         </Box>
       </div>
+      
     </>
   );
 }
