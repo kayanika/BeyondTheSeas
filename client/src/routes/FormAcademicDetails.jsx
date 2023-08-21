@@ -19,25 +19,20 @@ const theme = createTheme();
 export class FormAcademicDetails extends Component {
   state = {
     values: {
-      Name: '',
-      Age: '',
-      Job: '',
-      Institution: '',
-      Department: '',
-      gender: '',
-      Address: '',
-      
+      CGPA: '',
+      Field_Of_Interest: '',
+      GRE_Score: '',
+      github: '',
+      Project: '',
+      fees: '',  
     },
   };
 
-  handleChange = name => event => {
-    this.setState({
-      values: {
-        ...this.state.values,
-        [name]: event.target.value,
-      },
-    });
-  };
+ // Inside FormUserDetails component
+handleChange = name => event => {
+  this.props.handleChange(name)(event); // Call the prop function from parent
+};
+
 
   continue = e => {
     e.preventDefault();
@@ -122,7 +117,7 @@ export class FormAcademicDetails extends Component {
           />
           <TextField
             placeholder="Preferred Tuiton Fees"
-            label="Tuiton Fees"
+            label="Tuition Fees"
             value={values.fees}
             onChange={this.handleChange('fees')}
             defaultValue={values.fees}

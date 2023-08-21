@@ -20,6 +20,7 @@ import UserForm from "./routes/UserForm";
 import SocialIcons from "./routes/socialIcon";
 import { createTheme } from "@mui/material/styles"; // Importing the MUI theme
 import Success from "./routes/Success";
+import Confirm from "./routes/Confirm";
 
 
 
@@ -51,6 +52,8 @@ const App = () => {
             <Route path="/api/user/user-form" element={<UserForm />} />
             <Route path="/api/user/social-icons" element={<SocialIcons />} />
             <Route path="/api/user/success" element={<Success />} />
+            <Route path="/api/user/confirm" element={<Confirm />} />
+
 
 
 

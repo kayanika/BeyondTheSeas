@@ -6,14 +6,20 @@ import Success from './Success';
 
 export class UserForm extends Component {
   state = {
-    step: 1,
-    Name: '',
-    Age: '',
-    Job: '',
-    Institution: '',
-    Department: '',
-    gender: '',
-    Address: ''
+      step: 1,
+      name: '',
+      Age: '',
+      Job: '',
+      Institution: '',
+      Department: '',
+      gender: '',
+      Address: '',
+      CGPA: '',
+      Field_Of_Interest: '',
+      GRE_Score: '',
+      github: '',
+      Project: '',
+      fees: '',  
   };
 
   // Proceed to next step
@@ -39,8 +45,12 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { Name, Age, Job, Institution, Department,gender,Address } = this.state;
-    const values = { Name, Age, Job, Institution, Department,gender,Address };
+    const { name,Age,Job,Institution,Department,gender,Address, CGPA, Field_Of_Interest,GRE_Score, github,
+      Project,
+      fees  } = this.state;
+    const values = { name,Age,Job,Institution,Department,gender,Address, CGPA, Field_Of_Interest,GRE_Score, github,
+      Project,
+      fees };
 
     switch (step) {
       case 1:

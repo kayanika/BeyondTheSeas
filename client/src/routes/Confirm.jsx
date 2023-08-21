@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles'; // Correct import
 import { List, ListItem, ListItemText } from '@mui/material/';
 import Button from '@mui/material/Button';
 
+const theme = createTheme();
+
 export class Confirm extends Component {
+
+  // Inside FormUserDetails component
+handleChange = name => event => {
+  this.props.handleChange(name)(event); // Call the prop function from parent
+};
+
+  
   continue = e => {
     e.preventDefault();
     // PROCESS FORM //
@@ -19,11 +28,14 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { firstName, lastName, email, occupation, city, bio }
+      values: {  name,Age,Job,Institution,Department,gender,Address, CGPA, Field_Of_Interest,GRE_Score, github,
+      Project,
+      fees,   }
     } = this.props;
     return (
-      <MuiThemeProvider>
-        <>
+      <ThemeProvider theme={theme}> 
+      <React.Fragment>
+       
           <Dialog
             open
             fullWidth
@@ -32,22 +44,40 @@ export class Confirm extends Component {
             <AppBar title="Confirm User Data" />
             <List>
               <ListItem>
-                <ListItemText primary="First Name" secondary={firstName} />
+                <ListItemText primary="Name" secondary={name} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Last Name" secondary={lastName} />
+                <ListItemText primary="Age" secondary={Age} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Email" secondary={email} />
+                <ListItemText primary="Job" secondary={Job} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Occupation" secondary={occupation} />
+                <ListItemText primary="Institution" secondary={Institution} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="City" secondary={city} />
+                <ListItemText primary="Department" secondary={Department} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Bio" secondary={bio} />
+                <ListItemText primary="Address" secondary={Address} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="CGPA" secondary={CGPA} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Field Of Interest" secondary={Field_Of_Interest} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="GRE Score" secondary={GRE_Score} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="GitHub Profile" secondary={github} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Project Publication Link" secondary={Project} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Tuition Fees" secondary={fees} />
               </ListItem>
             </List>
             <br />
@@ -64,8 +94,8 @@ export class Confirm extends Component {
               onClick={this.continue}
             >Confirm & Continue</Button>
           </Dialog>
-        </>
-      </MuiThemeProvider>
+        </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

@@ -29,14 +29,10 @@ export class FormUserDetails extends Component {
     },
   };
 
-  handleChange = name => event => {
-    this.setState({
-      values: {
-        ...this.state.values,
-        [name]: event.target.value,
-      },
-    });
-  };
+ // Inside FormUserDetails component
+handleChange = name => event => {
+  this.props.handleChange(name)(event); // Call the prop function from parent
+};
 
   continue = e => {
     e.preventDefault();
@@ -44,7 +40,7 @@ export class FormUserDetails extends Component {
   };
 
   render() {
-    const { values } = this.state;
+    const { values } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
@@ -67,9 +63,9 @@ export class FormUserDetails extends Component {
             placeholder="Name"
             label="Name"
             floatingLabelText="Name"
-            value={values.Name}
-            onChange={this.handleChange('Name')}
-            defaultValue={values.Name}
+            value={values.name}
+            onChange={this.handleChange('name')}
+            defaultValue={values.name}
             margin="normal"
             fullWidth
             style={{ backgroundColor: '#E5FFCC' ,padding: '5px',}}
