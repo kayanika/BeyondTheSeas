@@ -26,9 +26,10 @@ import ViewProfileComponent from './view_profile_component';
 import { FaClipboardList } from 'react-icons/fa';
 import ViewShortlist from './view_shortlist';
 import {MdForum} from 'react-icons/md';
-import Forum from './forum';
+import Forum from '../components/forum';
 import AmbitiousUniversityList from '../components/ambitious_university_list';
 import ProbableUniversityList from '../components/probable_university_list';
+import { useParams } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -98,6 +99,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+  const { userID } = useParams();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [menudata, setMenudata] =useState("probableHome");
@@ -202,7 +204,7 @@ export default function MiniDrawer() {
             </ListItemButton>
           </ListItem>
 
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("forum")}>
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={() => window.location.href = `/api/user/view-forum/${userID}`}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -233,7 +235,7 @@ export default function MiniDrawer() {
                   {menudata==="Home" && <UniversityList/>}
                   {menudata==="viewProfile" && <ViewProfileComponent/>}
                   {menudata==="shortList" && <ViewShortlist/>}
-                  {menudata==="forum" && <Forum />}
+                  {/* {menudata==="forum" && <Forum />} */}
       </Box>
     </Box>
   </>
