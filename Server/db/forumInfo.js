@@ -98,7 +98,8 @@ SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.us
         answers a
         INNER JOIN student s ON a.student_id = s.student_id
       WHERE
-        a.question_id = $1; `;
+        a.question_id = $1
+        GROUP BY a.question; `;
         const params = [questionID];
         const result = await db.query(query, params);
         return result;
