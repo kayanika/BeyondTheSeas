@@ -3,6 +3,8 @@ import beyondTheSeas from '../apis/beyondTheSeas'
 import { UniversityContext } from '../context/universityContext'
 import {useParams} from 'react-router-dom'
 import UniversityList from './university_list_final'
+import Box from '@mui/material/Box';
+import { Grid } from '@mui/material';
 
 
 const AmbitiousUniversityList = (props) => {
@@ -32,9 +34,15 @@ const columns = [
   { id: 'matched_courses', name: 'Matched Courses' }
 ];
   return (
-    <div>
+    <>
+    <Box height={100} />
+      <h1 style={{ textAlign: 'center' }}>Too Ambitious List</h1>
+      
+      <div style={{ height: 800, width: '100%' }}>
       <UniversityList tableData={universities} columns={columns}/>
     </div>
+    
+    </>
   )
 }
 
