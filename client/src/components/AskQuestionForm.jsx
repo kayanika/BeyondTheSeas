@@ -7,9 +7,11 @@ const AskQuestionForm = ({ userID, onClose }) => {
   const [keywords, setKeywords] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [open, setOpen] = React.useState(true);
 
   const handleSubmit = async () => {
     setIsLoading(true);
+    
     try {
         if (!question.trim()) {
             return; // Don't insert empty questions
@@ -18,20 +20,27 @@ const AskQuestionForm = ({ userID, onClose }) => {
         question_text: question,
         keywords: keywords.split(',').map(keyword => keyword.trim()),
       });
+      console.log('Question posted successfully here ');
       if (response.data.status === 'success') {
         setSuccessMessage('Question added to the server successfully');
         setQuestion('');
         setKeywords('');
+        setOpen(false);
+        
       }
     } catch (error) {
       console.error('Error adding question:', error);
     } finally {
       setIsLoading(false);
+      
     }
   };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
-    <Dialog open={true} onClose={onClose} maxWidth="sm" fullWidth>
+    <Dialog open={open} onClose={handleSubmit} maxWidth="sm" fullWidth>
       <DialogTitle>Ask A Question</DialogTitle>
       <DialogContent>
         <TextField
@@ -55,7 +64,7 @@ const AskQuestionForm = ({ userID, onClose }) => {
       </DialogContent>
       <DialogActions>
         {isLoading ? (
-          <CircularProgress size={24} />
+          <CircularProgress size={20} />
         ) : (
           <>
             <Button onClick={handleSubmit} color="primary">
@@ -67,7 +76,9 @@ const AskQuestionForm = ({ userID, onClose }) => {
           </>
         )}
       </DialogActions>
-      {successMessage && <DialogContent>{successMessage}</DialogContent>}
+      
+      
+      
     </Dialog>
   );
 };
