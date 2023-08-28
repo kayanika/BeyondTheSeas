@@ -101,6 +101,8 @@ const personalizedRouter=require('./routes/personalizedRec');
 const nonPersonalizedRouter=require('./routes/nonPersonalized');
 const activityRouter=require('./routes/activityManager');
 const forumRouter=require('./routes/forum');
+const profileRouter=require('./routes/profile');
+
 
 
 
@@ -109,9 +111,13 @@ const forumRouter=require('./routes/forum');
 
 app.use('/api/user/personalized',personalizedRouter);
 app.use('/api/user/nonPersonalized',nonPersonalizedRouter);
+//app.use('/api/user/form-academic-details/:userID',)
 //app.use('/api/user/:userID/activity',activityRouter); 
 app.use('/api/user/view-forum',forumRouter); 
-//app.use('/api/user',authRouter);
+app.use('/api/user/profile',profileRouter);
+app.use('/api/user/activity',activityRouter);
+app.use('/api/user',authRouter);
+
 
 
                                                                               

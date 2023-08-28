@@ -4,34 +4,44 @@ class forumInfo{
     constructor(){  
     }
     getQuestions= async function() {
-        const query = "SELECT question_id, question_text,student_id FROM questions ;";
+        const query = "SELECT q.question_id, q.question_text,q.student_id,s.username FROM questions q INNER JOIN student s ON q.student_id = s.student_id ;";
         const params = [];
         const result = await db.query(query, params);
         return result;
     }
+    getAllQuestions= async function() {
+        const query = "SELECT q.question_id, q.question_text,q.student_id,s.username FROM questions q INNER JOIN student s ON q.student_id = s.student_id ;";
+        const params = [];
+        const result = await db.query(query, params);
+        return result;
+    }
+
 
     searchTopic= async function(keywords) {
         try{
         console.log("inside searchTopic in database");
         console.log(keywords);
         const query = `
-        SELECT q.question_id,q.question_text, a.answer_text
+   
+SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.username as questioner
         FROM questions q
         LEFT JOIN answers a ON q.question_id = a.question_id
+        INNER JOIN student s ON a.student_id = s.student_id
+        INNER JOIN student p ON q.student_id = p.student_id
+        
         WHERE (
             SELECT COUNT(DISTINCT keyword)
             FROM unnest(q.keywords) k
             CROSS JOIN unnest(string_to_array(k, ' ')) keyword
             WHERE Lower(keyword) = ANY($1::text[])
         ) > 0
-        GROUP BY q.question_id,q.question_text, a.answer_text
+        GROUP BY q.question_id,q.question_text, a.answer_text , s.username , p.username
         ORDER BY (
             SELECT COUNT(DISTINCT keyword)
             FROM unnest(q.keywords) k
             CROSS JOIN unnest(string_to_array(k, ' ')) keyword
             WHERE Lower(keyword) = ANY($1::text[])
         ) DESC;
-        
 
 
 
@@ -70,7 +80,7 @@ class forumInfo{
     getAnswers= async function(questionID) {
         console.log("inside getAnswers in database");
         console.log(questionID);
-        const query = "SELECT answer_id, answer_text,student_id FROM answers WHERE question_id=$1";
+        const query = "SELECT a.answer_id, a.answer_text,a.student_id, s.username  FROM answers a INNER JOIN student s ON a.student_id = s.student_id WHERE question_id=$1";
         const params = [questionID];
         const result = await db.query(query, params);
         return result;
@@ -82,11 +92,14 @@ class forumInfo{
         const query = `SELECT
         a.answer_id,
         a.student_id,
-        a.answer_text
+        a.answer_text,
+        s.username
       FROM
         answers a
+        INNER JOIN student s ON a.student_id = s.student_id
       WHERE
-        a.question_id = $1; `;
+        a.question_id = $1
+        GROUP BY a.question; `;
         const params = [questionID];
         const result = await db.query(query, params);
         return result;
