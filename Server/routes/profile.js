@@ -6,7 +6,7 @@ const router=require('express-promise-router')();
 
 
 router.route('/:userID').get(profileController.getProfile);
-router.route('/:userID/shortlist/:universityID').post(profileController.shortlist);
+router.route('/:userID/shortlist').post(profileController.shortlist);
 router.route('/:userID/shortlist').get(profileController.getShortlist);
 
 module.exports=router;

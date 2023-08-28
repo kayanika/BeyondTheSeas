@@ -106,6 +106,7 @@ const profileRouter=require('./routes/profile');
 
 
 
+
 //app.use('/api',homeRouter);
 
 app.use('/api/user/personalized',personalizedRouter);
@@ -116,6 +117,7 @@ app.use('/api/user/view-forum',forumRouter);
 app.use('/api/user/profile',profileRouter);
 app.use('/api/user/activity',activityRouter);
 app.use('/api/user',authRouter);
+
 
 
                                                                               

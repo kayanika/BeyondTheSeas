@@ -55,6 +55,34 @@ class userInfo{
         return result;
     }
 
+    getShortlist= async function(userID){
+        const query=`SELECT
+        s.name AS student_name,
+        u.name as university_name,
+        u.cs_ranking,
+        u.location,
+        u.website_link
+      FROM
+        student_university_shortlist sur
+      INNER JOIN student s ON sur.student_id = s.student_id
+      INNER JOIN university u ON sur.university_id = u.university_id
+     
+       WHERE sur.student_id=$1`;
+        const params=[userID];
+        const result=await db.query(query,params);
+        return result;
+        
+    }
+
+    shortlist=async function(userID,universityID){
+        const query=`INSERT INTO student_university_shortlist (student_id, university_id) VALUES ($1, $2) returning *;`;
+        const params=[userID,universityID];
+        const result=await db.query(query,params);
+        return result;
+    }
+        
+    
+
     
     
 }
