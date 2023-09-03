@@ -9,6 +9,7 @@ import ViewShortlist from "./routes/view_shortlist";
 import ForumFinal from "./routes/forum_final";
 import HomePage from "./routes/home_page";
 import { UniversityContextProvider } from "./context/universityContext";
+// import QuestionDetails from './components/QuestionDetails';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/api/user/view-shortlist/:userID" element={<ViewShortlist />} />
             <Route path="/api/user/view-forum/:userID" element={<ForumFinal />} />
             <Route path="/api/user/home/:userID" element={<HomePage />} />
+            {/* <Route path="/api/user/view-forum/:userID/getQuestion/:questionID" element={QuestionDetails} /> */}
             
           </Routes>
         </Router>
