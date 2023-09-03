@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import beyondTheSeas from '../apis/beyondTheSeas';
 import { useParams } from 'react-router-dom';
-import UniversityList from './university_list_final';
+import UniversityList from './university_list_final_copy';
 import PersonalizedChoiceBar from './personalizedCoiceBar';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';

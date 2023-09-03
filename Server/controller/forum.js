@@ -110,6 +110,47 @@ catch(err)
 
 }
 }
+
+
+exports.editAnswer= async (req,res,next)=>{
+    try{
+        console.log("inside editAnswer");
+        const result=await forum.editAnswer(req.params.userID,req.params.questionID,req.params.answerID,req.body.answer);
+        console.log("got the result back from database");
+        console.log(result);
+        res.status(201).json({
+            status:"success",
+            data:{
+                user:result.rows
+            }
+        })
+    }
+catch(err)
+{   console.log(err);
+
+}
+}
+
+exports.deleteAnswer= async (req,res,next)=>{
+    try{
+        console.log("inside deleteAnswer");
+        const result=await forum.deleteAnswer(req.params.userID,req.params.questionID,req.params.answerID);
+        console.log("got the result back from database");
+        console.log(result);
+        res.status(201).json({
+            status:"success",
+            data:{
+                user:result.rows
+            }
+        })
+    }
+catch(err) 
+{   console.log(err);
+
+} 
+}
+
+
 exports.getForum= async (req,res,next)=>{
 
     try{

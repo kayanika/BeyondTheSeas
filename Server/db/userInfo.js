@@ -75,7 +75,11 @@ class userInfo{
     }
 
     shortlist=async function(userID,universityID){
-        const query=`INSERT INTO student_university_shortlist (student_id, university_id) VALUES ($1, $2) returning *;`;
+        const query=`INSERT INTO student_university_shortlist (student_id, university_id)
+        SELECT $1, $2
+        WHERE NOT EXISTS (
+            SELECT 1 FROM student_university_shortlist WHERE student_id=$1 and university_id=$2
+        );`;
         const params=[userID,universityID];
         const result=await db.query(query,params);
         return result;

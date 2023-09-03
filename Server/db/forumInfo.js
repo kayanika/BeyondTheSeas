@@ -77,6 +77,23 @@ SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.us
         return result;
     }
 
+    
+    editAnswer= async function(userID, questionID, answerID,answer) {
+        console.log("inside editAnswer in database");
+        const query = "UPDATE answers SET answer_text=$1 WHERE answer_id=$2 AND question_id=$3 AND student_id=$4 returning * ";
+        const params = [answer,answerID,questionID,userID];
+        const result = await db.query(query, params);
+        return result;
+    }
+
+    deleteAnswer= async function(userID, questionID, answerID) {
+        console.log("inside deleteAnswer in database");
+        const query = "DELETE FROM answers WHERE answer_id=$1 AND question_id=$2 AND student_id=$3 returning * ";
+        const params = [answerID,questionID,userID];
+        const result = await db.query(query, params);
+        return result;
+    }
+
     getAnswers= async function(questionID) {
         console.log("inside getAnswers in database");
         console.log(questionID);
@@ -99,7 +116,7 @@ SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.us
         INNER JOIN student s ON a.student_id = s.student_id
       WHERE
         a.question_id = $1
-        GROUP BY a.question; `;
+         `;
         const params = [questionID];
         const result = await db.query(query, params);
         return result;

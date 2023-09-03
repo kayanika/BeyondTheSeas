@@ -24,7 +24,7 @@ import { IoPersonCircleSharp } from 'react-icons/io5';
 import '../components/index.css'
 import ViewProfileComponent from './view_profile_component';
 import { FaClipboardList } from 'react-icons/fa';
-import ViewShortlist from './view_shortlist';
+import ViewShortlist from '../components/shortlisted_university';
 import {MdForum} from 'react-icons/md';
 import Forum from '../components/forum';
 import { useParams } from 'react-router-dom';
