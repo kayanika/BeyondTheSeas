@@ -229,7 +229,7 @@ export default function MiniDrawer() {
         
       </Drawer>
       <Box className="background-box" component="main"  sx={{ flexGrow: 1, p: 3 }}>
-        <drawerHeader />
+        <DrawerHeader />
                   {/* {menudata==="ambitiousHome" && <AmbitiousUniversityList/>}
                   {menudata==="Home" && <UniversityList/>}
                   {menudata==="viewProfile" && <ViewProfileComponent/>}

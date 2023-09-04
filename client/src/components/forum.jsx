@@ -8,7 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import {
   Container,
   Box,
@@ -17,11 +17,13 @@ import {
   CircularProgress,
   Snackbar,
   IconButton,
+  Dialog,
 } from '@mui/material';
 import { FaSearch } from 'react-icons/fa';
 import beyondTheSeas from '../apis/beyondTheSeas';
 import AskQuestionForm from './AskQuestionForm'; // Update the path as needed
 import CloseIcon from '@mui/icons-material/Close';
+import QuestionDialog from './QuestionDialog';
 
 const Forum = () => {
   const { userID } = useParams();
@@ -32,7 +34,9 @@ const Forum = () => {
   const [isAskQuestionOpen, setIsAskQuestionOpen] = useState(false);
   const [isSuccessSnackbarOpen, setIsSuccessSnackbarOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [isSuccessSnackbarOpen, setIsSuccessSnackbarOpen] = useState(false);
+  const [isQuestionDialogOpen, setIsQuestionDialogOpen] = useState(false);
+  const [selectedQuestionID, setSelectedQuestionID] = useState(null);
+  //const [isSuccessSnackbarOpen, setIsSuccessSnackbarOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,6 +80,7 @@ const Forum = () => {
         question_text: questionText,
         keywords: keywords,
       });
+      console.log('Question posted successfully');
       setIsSuccessSnackbarOpen(true);
       setIsAskQuestionOpen(false);
     } catch (error) {
@@ -118,27 +123,40 @@ const Forum = () => {
               paddingLeft: '0',
             }}
             onClick={() =>
-              (window.location.href = `/api/user/view-forum/${userID}/getQuestion/${questionObj.question_id}`)
-            }
+              handleQuestionClick(questionObj.question_id, questionObj.question_text)}
+            
           >
             {startIndex + index + 1}. {questionObj.question_text}
           </Button>
         </Box>
       ));
   };
+  const handleQuestionClick = (questionID, questionText) => {
+    if (!questionText.trim()) {
+      return; // Don't insert empty questions
+    }
+
+    setSelectedQuestionID(questionID);
+    setIsQuestionDialogOpen(true);
+  };
+
+  const handleCloseQuestionDialog = () => {
+    setIsQuestionDialogOpen(false);
+    setSelectedQuestionID(null);
+  };;
 
   return (
     <Container
-    sx={{
-      backgroundImage: 'url("../images/background4.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      minHeight: '94vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    }}
-  >
+      sx={{
+        backgroundImage: 'url("../images/background4.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '85vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       <Box
         style={{
           position: 'sticky',
@@ -146,8 +164,9 @@ const Forum = () => {
           left: 260,
           width: '100%',
           padding: '15px',
-          marginTop: '30px',
+          marginTop: '0px',
           display: 'flex',
+          
         }}
       >
         <TextField
@@ -187,10 +206,10 @@ const Forum = () => {
               {...item}
             />
           )}
-          />
+        />
         <Button
           variant="outlined"
-          color="primary"
+          color="success"
           style={{ marginTop: '20px' }}
           onClick={() => setIsAskQuestionOpen(true)}
         >
@@ -203,34 +222,46 @@ const Forum = () => {
           />
         )} */}
         {isAskQuestionOpen && (
-        <AskQuestionForm
-          userID={userID}
-          onClose={() => setIsAskQuestionOpen(false)}
-          onSubmit={handleAskQuestion}
-          isSubmitting={isSubmitting} // Pass the loading state to the form
+          <AskQuestionForm
+            userID={userID}
+            onClose={() => {
+              setIsAskQuestionOpen(false);
+              setIsSuccessSnackbarOpen(true);
+            }}
+            onSubmit={handleAskQuestion}
+            isSubmitting={isSubmitting}
+          />
+        )}
+  
+        <Snackbar
+          open={isSuccessSnackbarOpen}
+          autoHideDuration={5000} // Adjust the duration as needed
+          onClose={() => setIsSuccessSnackbarOpen(false)}
+          message="Question added to the server successfully"
+          action={
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={() => setIsSuccessSnackbarOpen(false)}
+            >
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          }
         />
-      )}
-
-      <Snackbar
-        open={isSuccessSnackbarOpen}
-        autoHideDuration={5000}
-        onClose={() => setIsSuccessSnackbarOpen(false)}
-        message="Question added to the server successfully"
-        action={
-          <IconButton
-            size="small"
-            aria-label="close"
-            color="inherit"
-            onClick={() => setIsSuccessSnackbarOpen(false)}
-          >
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        }
-      />
         
+        {/* Question Dialog */}
+        <QuestionDialog
+          open={isQuestionDialogOpen}
+          onClose={() => handleCloseQuestionDialog()}
+          questionID={selectedQuestionID}
+          close={()=>{setIsQuestionDialogOpen(false)}}
+        />
+  
       </Box>
     </Container>
   );
+  
 };
 
 export default Forum;
