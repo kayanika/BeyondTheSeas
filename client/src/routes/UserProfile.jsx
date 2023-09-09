@@ -49,9 +49,11 @@ const UserProfile = () => {
                       Name:
                     </Typography>
                   </Grid>
-                  <Grid item xs={6} md={4}>
-                    <Typography variant="body1">Afroza Parvin Disa</Typography>
-                  </Grid>
+                    <Grid item xs={6} md={4}>
+                      <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                        Afroza Parvin Disa
+                      </Typography>
+                    </Grid>
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
@@ -59,7 +61,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">john.doe@example.com</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      john.doe@example.com
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -68,7 +72,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">23</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      23
+                    </Typography>
                   </Grid>
 
 
@@ -78,7 +84,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">Student</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      Student
+                    </Typography>
                   </Grid>
 
 
@@ -88,7 +96,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">CSE</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      CSE
+                    </Typography>
                   </Grid>
 
                   
@@ -99,7 +109,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">Female</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      Female
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -108,17 +120,22 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">ABC University</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      BUET
+                    </Typography>
                   </Grid>
-                    
+
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
-                      Profession:
+                      Address:
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">Student</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      Dhaka
+                    </Typography>
                   </Grid>
+                 
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
@@ -126,7 +143,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">3.00</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      3.00
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -135,7 +154,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1"> ToC</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      AI, ML
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -144,7 +165,9 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">https://github.com/exotisa202</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      https://github.com/exotisa202
+                    </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -153,8 +176,11 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">https://github.com/exotisa202</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                      https://github.com/exotisa202
+                    </Typography>
                   </Grid>
+
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
@@ -162,8 +188,11 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">400</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                    320
+                    </Typography>
                   </Grid>
+
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
@@ -171,8 +200,11 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">$40000</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                    10000$
+                    </Typography>
                   </Grid>
+
                   
                   
 
