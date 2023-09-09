@@ -7,6 +7,9 @@ import img from '../images/background5.jpg'; // Use the correct image path
 import HeaderUser from './HeaderUser';
 import Sidebar from '../components/sidebar';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom'; // Import the Link component
+
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const UserProfile = () => {
   return (
@@ -17,21 +20,26 @@ const UserProfile = () => {
         <div className="content-container">
           <Container maxWidth="md">
             <div className="container emp-profile">
+            <div style={{ position: 'absolute', top: '10px', right: '40px', display: 'flex', alignItems: 'center' }}>
+                <NotificationsIcon fontSize="large" />
+                <Link to="/api/user/home/" className="button" style={{ marginLeft: '10px' }}>
+                  <Button variant="contained" color="secondary" style={{ backgroundColor:'#8A9A5B' }}>
+                  Sign Out
+                  </Button>
+                </Link>  
+              </div>
               <form method="post">
                 <div className="row">
                   <div className="col-md-12" style={{ textAlign: 'center' }}>
-                    <div className="profile-img">
-                      <Avatar
-                        alt="User Avatar"
-                        src={img} // Use the user's profile picture here
-                        sx={{
-                          width: 200,
-                          height: 200,
-                          margin: '0 auto 0 3cm',
-                          border: '5px solid #fff', // Add a border around the avatar
-                        }}
-                      />
-                    </div>
+
+                  <div className="profile-img" style={{ margin: '0 auto 0 250px' }}>
+                    <Avatar
+                      alt="User Avatar"
+                      src={img} // Use the user's profile picture here
+                      sx={{ width: 200, height: 200 }}
+                    />
+                  </div>
+
                   </div>
                 </div>
                 <Grid container spacing={3}>
@@ -44,6 +52,36 @@ const UserProfile = () => {
                   <Grid item xs={6} md={4}>
                     <Typography variant="body1">Afroza Parvin Disa</Typography>
                   </Grid>
+
+                  <Grid item xs={6} md={2}>
+                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                      Email:
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} md={4}>
+                    <Typography variant="body1">john.doe@example.com</Typography>
+                  </Grid>
+
+                  <Grid item xs={6} md={2}>
+                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                      Age:
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} md={4}>
+                    <Typography variant="body1">23</Typography>
+                  </Grid>
+
+
+                  <Grid item xs={6} md={2}>
+                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                      Profession:
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} md={4}>
+                    <Typography variant="body1">Student</Typography>
+                  </Grid>
+
+
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
                       Department:
@@ -53,22 +91,15 @@ const UserProfile = () => {
                     <Typography variant="body1">CSE</Typography>
                   </Grid>
 
-                  <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
-                      Email:
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={6} md={4}>
-                    <Typography variant="body1">john.doe@example.com</Typography>
-                  </Grid>
+                  
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
-                      Email:
+                      Gender:
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
-                    <Typography variant="body1">john.doe@example.com</Typography>
+                    <Typography variant="body1">Female</Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
@@ -100,6 +131,15 @@ const UserProfile = () => {
 
                   <Grid item xs={6} md={2}>
                     <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                     Field_Interest: 
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} md={4}>
+                    <Typography variant="body1"> ToC</Typography>
+                  </Grid>
+
+                  <Grid item xs={6} md={2}>
+                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
                       Github Link:
                     </Typography>
                   </Grid>
@@ -124,13 +164,23 @@ const UserProfile = () => {
                   <Grid item xs={6} md={4}>
                     <Typography variant="body1">400</Typography>
                   </Grid>
+
+                  <Grid item xs={6} md={2}>
+                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                      Tution Fees:
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} md={4}>
+                    <Typography variant="body1">$40000</Typography>
+                  </Grid>
                   
                   
 
 
                 </Grid>
-                <div className="row">
-                  <div className="col-md-6">
+                <div className="button-container">
+                  <div className="row">
+                    <div className="col-md-6">
                     <Button
                       variant="contained"
                       color="primary"
@@ -143,9 +193,13 @@ const UserProfile = () => {
                         width: '150px', // Adjust the button width
                       }}
                     >
-                      Edit Profile
+                      <Link to="/api/user/user-form/" className="button">
+                         Edit Profile
+                      </Link>
+                     
                     </Button>
                   </div>
+                </div>
                 </div>
               </form>
             </div>
