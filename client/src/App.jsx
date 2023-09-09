@@ -21,6 +21,7 @@ import SocialIcons from "./routes/socialIcon";
 import { createTheme } from "@mui/material/styles"; // Importing the MUI theme
 import Success from "./routes/Success";
 import Confirm from "./routes/Confirm";
+import UserProfile from "./routes/UserProfile";
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/api/user/login" element={<Login />} />
             <Route path="/api/user/register" element={<Register />} />
             <Route path="/api/user/forgot-password" element={<ForgotPassword />} />
+            <Route path="/api/user/user-profile" element={<UserProfile />} />
             
           
           
