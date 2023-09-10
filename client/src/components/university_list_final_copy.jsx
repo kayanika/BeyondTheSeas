@@ -27,41 +27,7 @@ const UniversityList = ({ tableData, columns }) => {
   const [orderBy, setOrderBy] = useState('');
   const [order, setOrder] = useState('asc');
   const [filterOption, setFilterOption] = useState('');
-  // const [tableData, setTableData] = useState([]);
-
-
-
-
-  
-
-  // const handleFilterOptionChange = async (newFilterOption) => {
-  //   try {
-  //     const response = await beyondTheSeas.get(`/nonPersonalized/${userID}/${newFilterOption}`);
-  //     // setUniversities(response.data.data.universities);
-  //     tableData = response.data.data.user;
-  //     // setFilterOption(''); // Update filter option after fetching data
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // const handleFilterOptionChange = (event) => {
-  //   // const newFilterOption = event;
-  //   handleFilterOptionChangeAndFetchData(event);
-  // };
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await beyondTheSeas.get(`/nonPersonalized/${userID}/${filterOption}`);
-  //       // setUniversities(response.data.data.universities);
-  //       tableData = response.data.data.user;
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [userID, filterOption]);
+ 
 
   const handleSortRequest = (columnId) => {
     const isAsc = orderBy === columnId && order === 'asc';
@@ -133,30 +99,6 @@ const UniversityList = ({ tableData, columns }) => {
                 <TableCell>Add to Shortlist</TableCell>
                 <TableCell>Add to Blacklist</TableCell>
               </TableRow>
-              {/* <TableRow>
-                <TableCell colSpan={columns.length + 2}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div>
-                      <Typography variant="h6">Your Custom Content</Typography>
-                    </div>
-                    <div>
-                      <Select
-                        value={filterOption}
-                        onChange={handleFilterOptionChange}
-                        variant="outlined"
-                        margin="dense"
-                      >
-                        <MenuItem value="scholarship" onClick={() => handleFilterOptionChange('scholarship')}>
-                          Scholarship
-                        </MenuItem>
-                        <MenuItem value="tuitionFees" onClick={() => handleFilterOptionChange('tuitionFees')}>
-                          Tuition Fees
-                        </MenuItem>
-                      </Select>
-                    </div>
-                  </div>
-                </TableCell>
-              </TableRow> */}
             </TableHead>
             <TableBody>
               {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((university, index) => (
@@ -202,3 +144,6 @@ const UniversityList = ({ tableData, columns }) => {
 };
 
 export default UniversityList;
+
+
+

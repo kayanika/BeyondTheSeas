@@ -111,3 +111,5 @@ const NonPersonalizedUniversityList = () => {
 };
 
 export default NonPersonalizedUniversityList;
+
+
