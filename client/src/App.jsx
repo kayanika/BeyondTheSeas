@@ -61,6 +61,11 @@ const App = () => {
 
 
           
+            {/* <Route path="/api/user//profile/:userID/shortlist" element={<ViewShortlist />} /> */}
+            <Route path="/api/user/view-forum/:userID" element={<ForumFinal />} />
+            <Route path="/api/user/home" element={<HomePage />} />
+            {/* <Route path="/api/user/view-forum/:userID/getQuestion/:questionID" element={QuestionDetails} /> */}
+            
           </Routes>
         </Router>
       </div>
