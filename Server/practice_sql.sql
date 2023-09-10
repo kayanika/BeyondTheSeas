@@ -59,4 +59,15 @@ INSERT INTO student_university_shortlist (student_id, university_id) VALUES ($1,
 
 -- write it in another way :UPDATE answers SET answer_text=$1 WHERE answer_id=$2 AND question_id=$3 AND student_id=$4 returning *;
 
+-- add a table student_university_blacklist that will have id integer not null, student_id, university_id foreign key, boolen default false is_blacklisted
+CREATE TABLE student_university_blacklist (
+    id SERIAL PRIMARY KEY,
+    student_id integer NOT NULL,
+    university_id integer NOT NULL,
+    is_blacklisted boolean DEFAULT false,
+    CONSTRAINT fkstudent_university_blacklist_student FOREIGN KEY (student_id) REFERENCES student (student_id),
+    CONSTRAINT fkstudent_university_blacklist_university FOREIGN KEY (university_id) REFERENCES university (university_id)
+);
+
+
 

@@ -84,11 +84,36 @@ class userInfo{
         const result=await db.query(query,params);
         return result;
     }
-        
-    
 
-    
-    
+    // getBlacklist= async function(userID){
+    //     const query=`SELECT
+    //     s.name AS student_name,
+    //     u.name as university_name,
+    //     u.cs_ranking,
+    //     u.location,
+    //     u.website_link
+    //   FROM
+    //     student_university_blacklist sur
+    //   INNER JOIN student s ON sur.student_id = s.student_id
+    //   INNER JOIN university u ON sur.university_id = u.university_id
+     
+    //    WHERE sur.student_id=$1`;
+    //     const params=[userID];
+    //     const result=await db.query(query,params);
+    //     return result; 
+        
+    // }
+
+    blacklist=async function(userID,universityID){
+        const query=`INSERT INTO student_university_blacklist (student_id, university_id)
+        SELECT $1, $2
+        WHERE NOT EXISTS (
+            SELECT 1 FROM student_university_blacklist WHERE student_id=$1 and university_id=$2
+        );`;
+        const params=[userID,universityID];
+        const result=await db.query(query,params);
+        return result;
+    }
 }
 
 

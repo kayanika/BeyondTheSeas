@@ -13,6 +13,7 @@ class academicAnalysis{
         return result;
     }
 
+// need to modify the query such that it will not return the university list that is already in blacklist
     getProbable= async function(userID) {
         const query = `WITH StudentData AS (
             SELECT
@@ -27,6 +28,7 @@ class academicAnalysis{
             WHERE s.student_id = $1 -- Replace with the specific student's ID
             GROUP BY s.student_id
         )
+       
         
         SELECT
             u.university_id,
@@ -38,18 +40,24 @@ class academicAnalysis{
             
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
+        
+
         JOIN universityRunsProgram up ON u.university_id = up.university_id
         JOIN programCourseMapping pcm ON up.program_id = pcm.program_id
         JOIN program p on p.program_id = up.program_id
         JOIN courseidBelongingToFieldOfInterest cbfi ON pcm.course_id = cbfi.course_id
         JOIN StudentData sd ON cbfi.field_id = ANY(sd.student_fields)
         WHERE
+
             (up.tuition_fees - sd.maximum_tuition_fees <1000  OR
              (sd.in_need_of_scholarship = TRUE AND  up.available_scholarship  = TRUE))
             AND u.cutoff_cgpa - sd.cgpa <=.1 
             AND u.cutoff_grescore - sd.gre_score <=20
+            AND u.university_id NOT IN (SELECT university_id FROM student_university_blacklist WHERE student_id = sd.student_id)
         GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
-        ORDER BY matched_courses DESC;`;
+        ORDER BY matched_courses DESC
+       
+        ;`;
         const params = [userID];
         const result = await db.query(query, params);
         return result;
@@ -89,6 +97,7 @@ class academicAnalysis{
              (sd.in_need_of_scholarship = TRUE AND  p.scholarship_available  = TRUE))
             AND u.cutoff_cgpa <=sd.cgpa 
             AND u.cutoff_grescore <= sd.gre_score
+            AND u.university_id NOT IN (SELECT university_id FROM student_university_blacklist WHERE student_id = sd.student_id)
             GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
         ORDER BY matched_courses DESC;
         
@@ -120,17 +129,19 @@ class academicAnalysis{
         p.tuition_fees,
             COUNT(DISTINCT cbfi.course_id) AS matched_courses
         FROM university u
+
         JOIN universityRunsProgram up ON u.university_id = up.university_id
         JOIN programCourseMapping pcm ON up.program_id = pcm.program_id
         JOIN program p on p.program_id = up.program_id
         JOIN courseidBelongingToFieldOfInterest cbfi ON pcm.course_id = cbfi.course_id
         JOIN StudentData sd ON cbfi.field_id = ANY(sd.student_fields)
         WHERE
-            
              u.cutoff_cgpa - sd.cgpa <= .2 
             AND u.cutoff_grescore - sd.gre_score <= 50
             AND up.program_rating > 4.5
+            AND u.university_id NOT IN (SELECT university_id FROM student_university_blacklist WHERE student_id = sd.student_id)
             GROUP BY u.university_id, u.name, u.cs_ranking,	p.program_type,p.tuition_fees
+
         ORDER BY matched_courses DESC;`;
         const params = [userID];
         
