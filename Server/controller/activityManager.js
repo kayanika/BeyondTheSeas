@@ -28,4 +28,21 @@ exports.createEvent = async (req, res, next) => {
         console.log(err);
     }
 }
- 
+
+exports.getEvents = async (req, res, next) => {
+    try {
+        const result = await activity.getEvents(req.params.userID);
+        console.log(result);
+        res.status(200).json({
+            status: "success",
+            results: result.rows.length,
+            data: {
+                activities: result.rows,
+            }
+        })
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+

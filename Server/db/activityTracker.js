@@ -12,6 +12,12 @@ class activityTracker{
         const result = await db.query(query, params);
         return result;
     }
+    getEvents= async function(userID) {
+        const query = `SELECT * FROM public.activity_manager WHERE student_id=$1 ORDER BY activity_date DESC;`;
+        const params = [userID];
+        const result = await db.query(query, params);
+        return result;
+    }
    
     
 
