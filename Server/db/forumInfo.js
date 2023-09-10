@@ -116,7 +116,7 @@ SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.us
         INNER JOIN student s ON a.student_id = s.student_id
       WHERE
         a.question_id = $1
-         `;
+        ; `;
         const params = [questionID];
         const result = await db.query(query, params);
         return result;
