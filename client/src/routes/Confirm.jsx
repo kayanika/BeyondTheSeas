@@ -64,7 +64,10 @@ handleChange = name => event => {
                 <ListItemText primary="Institution" secondary={Institution} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Department" secondary={Department} />
+                <ListItemText primary="Gender" secondary={gender} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="" secondary={Department} />
               </ListItem>
               <ListItem>
                 <ListItemText primary="Address" secondary={Address} />

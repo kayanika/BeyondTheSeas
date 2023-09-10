@@ -45,7 +45,7 @@ const UserProfile = () => {
                 <Grid container spacing={3}>
                   {/* Labels (Profession, Email, Institution) */}
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Name:
                     </Typography>
                   </Grid>
@@ -56,7 +56,7 @@ const UserProfile = () => {
                     </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Email:
                     </Typography>
                   </Grid>
@@ -67,7 +67,7 @@ const UserProfile = () => {
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Age:
                     </Typography>
                   </Grid>
@@ -79,7 +79,7 @@ const UserProfile = () => {
 
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Profession:
                     </Typography>
                   </Grid>
@@ -91,7 +91,7 @@ const UserProfile = () => {
 
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Department:
                     </Typography>
                   </Grid>
@@ -104,7 +104,7 @@ const UserProfile = () => {
                   
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{fontWeight: 'bold', color: '#303F9F' }}>
                       Gender:
                     </Typography>
                   </Grid>
@@ -115,7 +115,7 @@ const UserProfile = () => {
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{fontWeight: 'bold', color: '#303F9F' }}>
                       Institution:
                     </Typography>
                   </Grid>
@@ -126,7 +126,7 @@ const UserProfile = () => {
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Address:
                     </Typography>
                   </Grid>
@@ -138,29 +138,29 @@ const UserProfile = () => {
                  
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{fontWeight: 'bold', color: '#303F9F' }}>
                       CGPA:
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
                     <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-                      3.00
+                      3.34
                     </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                      Field_Interest: 
                     </Typography>
                   </Grid>
                   <Grid item xs={6} md={4}>
                     <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-                      AI, ML
+                      Kichuna
                     </Typography>
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Github Link:
                     </Typography>
                   </Grid>
@@ -171,7 +171,7 @@ const UserProfile = () => {
                   </Grid>
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       Project Link:
                     </Typography>
                   </Grid>
@@ -183,7 +183,7 @@ const UserProfile = () => {
 
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold',color: '#303F9F' }}>
                       GRE Score:
                     </Typography>
                   </Grid>
@@ -195,7 +195,7 @@ const UserProfile = () => {
 
 
                   <Grid item xs={6} md={2}>
-                    <Typography variant="h6" sx={{ color: '#303F9F' }}>
+                    <Typography variant="h6" sx={{fontWeight: 'bold', color: '#303F9F' }}>
                       Tution Fees:
                     </Typography>
                   </Grid>
@@ -205,10 +205,7 @@ const UserProfile = () => {
                     </Typography>
                   </Grid>
 
-                  
-                  
-
-
+                
                 </Grid>
                 <div className="button-container">
                   <div className="row">
