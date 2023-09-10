@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import img from '../images/background5.jpg'; // Use the correct image path
 import HeaderUser from './HeaderUser';
-import Sidebar from '../components/sidebar';
+import Sidebar2 from '../components/Sidebar2';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom'; // Import the Link component
 
@@ -16,7 +16,7 @@ const UserProfile = () => {
     <div className="home-analysis-container">
       <HeaderUser />
       <div className="sidebar-and-content">
-        <Sidebar />
+        <Sidebar2/>
         <div className="content-container">
           <Container maxWidth="md">
             <div className="container emp-profile">

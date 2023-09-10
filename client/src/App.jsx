@@ -12,6 +12,7 @@ import { UniversityContextProvider } from "./context/universityContext";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
 import ForgotPassword from "./routes/ForgotPassword";
+import MyCalendar from "./routes/calender";
 
 import FormUserDetails from "./routes/FormUserDetails";
 import FormAcademicDetails from "./routes/FormAcademicDetails";
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/api/user/register" element={<Register />} />
             <Route path="/api/user/forgot-password" element={<ForgotPassword />} />
             <Route path="/api/user/user-profile" element={<UserProfile />} />
+            <Route path="/api/user/my-calendar" element={<MyCalendar />} />
             
           
           
