@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import Sidebar2 from '../components/Sidebar2';
+import UserProfileHeader from '../components/CalenderHeader';
 
 const localizer = momentLocalizer(moment);
 
@@ -10,12 +11,18 @@ const MyCalendar = () => {
   const [events, setEvents] = useState([]);
   const [newEvent, setNewEvent] = useState({ title: '', start: '', end: '' });
   const [showAddEventForm, setShowAddEventForm] = useState(false);
+  const [userHasEvents, setUserHasEvents] = useState(false); // User events flag
 
   // Load events from localStorage on component mount
   useEffect(() => {
     const storedEvents = localStorage.getItem('calendarEvents');
-    if (storedEvents) {
+    if (storedEvents && JSON.parse(storedEvents).length > 0) {
+      // There are events, so set userHasEvents to true
+      setUserHasEvents(true);
       setEvents(JSON.parse(storedEvents));
+    } else {
+      // No events found, set userHasEvents to false
+      setUserHasEvents(false);
     }
   }, []);
 
@@ -34,19 +41,44 @@ const MyCalendar = () => {
     setNewEvent({ title: '', start: '', end: '' });
   };
 
+  const handleDeleteEvent = (eventToDelete) => {
+    // Filter out the event to delete from the events array
+    const updatedEvents = events.filter((event) => event !== eventToDelete);
+
+    // Update the events state with the updated array
+    setEvents(updatedEvents);
+
+    // Save the updated events array to localStorage
+    localStorage.setItem('calendarEvents', JSON.stringify(updatedEvents));
+  };
+
+  // Custom event component for agenda view
+  const CustomEvent = ({ event }) => (
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span>{event.title}</span>
+        <div style={{ textAlign: 'right' }}>
+          <button onClick={() => handleDeleteEvent(event)} style={{ background: 'blue', color: 'white', border: 'none', cursor: 'pointer' }}>Delete</button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div style={{ display: 'flex' }}>
-        <div style={{ width: '200px', background: '#333', color: '#E5FFCC', padding: '20px' }}>
+      <div style={{ width: '250px', background: '#333', color: '#E5FFCC', padding: '20px' }}>
         {/* Sidebar */}
         <div className="sidebar-and-content">
-        <Sidebar2 />
+          <Sidebar2 />
         </div>
-        </div>
+      </div>
 
-        <div style={{ flex: 2, padding: '20px' }}>
+      <div style={{ flex: 2, padding: '20px', background: 'linear-gradient(to bottom, #88c87e, #E5FFCC)' }}>
+        {/* Add UserProfileHeader with userHasEvents prop */}
+        <UserProfileHeader userHasEvents={userHasEvents} />
         {/* Calendar */}
-        <h2> Calendar with Events</h2>
-        <div style={{ height: '500px' }}>
+        <h2 style={{ textAlign: 'center', fontFamily: 'Roboto, sans-serif', textShadow: '2px 2px 2px rgba(0, 0, 0, 0.3)', color: '#fff' }}> Calendar with Events</h2>
+        <div style={{ height: '500px', backgroundColor: 'white', borderRadius: '5px' }}>
           <Calendar
             localizer={localizer}
             events={events}
@@ -54,6 +86,11 @@ const MyCalendar = () => {
             endAccessor="end"
             style={{ backgroundColor: 'white', borderRadius: '5px' }}
             onSelectEvent={handleSelectEvent}
+            components={{
+              agenda: {
+                event: CustomEvent,
+              },
+            }}
           />
         </div>
         <div
@@ -94,7 +131,7 @@ const MyCalendar = () => {
             </form>
           </div>
         )}
-        </div>
+      </div>
     </div>
   );
 };

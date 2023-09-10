@@ -8,7 +8,7 @@ const Sidebar2 = (props) => {
   
   return (
     <div className="sidebar">
-      <div className="button-container">
+      <div className="button-container" style={{ marginTop: '100px' }}>
         {/* Link to the /home page */}
         <Link to={`/api/user/${userID}/home`} className="button">
           Home
