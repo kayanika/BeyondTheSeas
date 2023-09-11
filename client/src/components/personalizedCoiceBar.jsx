@@ -10,14 +10,14 @@ const PersonalizedChoiceBar = () => {
     <div className="personalizedChoiceBar">
       <div className="third-container">
       <Stack direction="column" spacing={1}>
-          <Button variant="success" component={Link} to={`/api/user/personalized/${userID}/ambitious`} className="button">
+          <Button variant="outlined" color="success" component={Link} to={`/api/user/personalized/${userID}/ambitious`} className="button">
             Too Ambitious List
           </Button>
           
-          <Button variant="success" component={Link} to={`/api/user/personalized/${userID}/probable`} className="button">
+          <Button variant="outlined" color="success"  component={Link} to={`/api/user/personalized/${userID}/probable`} className="button">
             Most Probable List
           </Button>
-          <Button variant="success" component={Link} to={`/api/user/personalized/${userID}/safe`} className="button">
+          <Button variant="outlined" color="success"  component={Link} to={`/api/user/personalized/${userID}/safe`} className="button">
             Safe Option List
           </Button>
         </Stack>

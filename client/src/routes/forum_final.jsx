@@ -24,7 +24,7 @@ import { IoPersonCircleSharp } from 'react-icons/io5';
 import '../components/index.css'
 import ViewProfileComponent from './view_profile_component';
 import { FaClipboardList } from 'react-icons/fa';
-import ViewShortlist from './view_shortlist';
+import ViewShortlist from '../components/shortlisted_university';
 import {MdForum} from 'react-icons/md';
 import Forum from '../components/forum';
 import AmbitiousUniversityList from '../components/ambitious_university_list';
@@ -182,7 +182,7 @@ export default function MiniDrawer() {
           </ListItem>
 
 
-          <ListItem  disablePadding sx={{ display: 'block' }} onClick={() => window.location.href = `/api/user/view-shortlist/${userID}`}>
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={() =>setMenudata("shortList")}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -232,8 +232,8 @@ export default function MiniDrawer() {
         <DrawerHeader />
                   {/* {menudata==="ambitiousHome" && <AmbitiousUniversityList/>}
                   {menudata==="Home" && <UniversityList/>}
-                  {menudata==="viewProfile" && <ViewProfileComponent/>}
-                  {menudata==="shortList" && <ViewShortlist/>} */}
+                  {menudata==="viewProfile" && <ViewProfileComponent/>} */}
+                  {menudata==="shortList" && <ViewShortlist/>}
                   {menudata==="forum" && <Forum />}
       </Box>
     </Box>

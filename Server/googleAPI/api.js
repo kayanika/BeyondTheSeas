@@ -29,15 +29,15 @@ const calendar = google.calendar({
 exports.createEvent = (req, res) => {
   console.log("inside create event in google chal");
   var event = {
-    'summary': 'Meet student advisor!',
+    'summary': req.body.event_summary,
     'location': 'Cumilla',
     'description': 'Discuss career opportunities',
     'start': {
-      'dateTime': '2023-02-12T09:00:00-07:00',
+      'dateTime': req.body.activity_date,
       'timeZone': 'Asia/Dhaka',
     },
     'end': {
-      'dateTime': '2023-02-13T17:00:00-07:00',
+      'dateTime': req.body.activity_date,
       'timeZone': 'Asia/Dhaka',
     },
     'attendees': [],

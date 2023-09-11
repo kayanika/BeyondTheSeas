@@ -2,206 +2,205 @@
 
 
 .bg-bottle-green {
-    /* background-color: hsl(174, 100%, 20%); */
-    display: flex;
-   background-image: url('../images/background4.jpg');
-  /* Set background properties */
-  background-repeat: no-repeat; 
-  background-size: cover;
-  background-color: #629464;
-   
-  }
-
-  .bold-font {
-    font-weight: 500;
-  }
-  
-  .roboto-font {
-    font-family: 'Roboto', sans-serif;
-  }
-
-
-  .logo-img {
-    max-width: 150px; /* Adjust the maximum width for the logo */
-    margin-bottom: 0px; /* Reduce the space below the logo */
-  }
-
-  .home-analysis-container {
-    display: flex;
-    flex-direction: column;
-   
-      background-image: url('../images/background4.jpg');
-      /* Set background properties */
-      background-repeat: no-repeat; 
-      background-size: cover;
-    
-   
-  }
-  
-  .sidebar-and-content {
-    display: flex;
-   
-  }
-
-  /* Media query for small screens (e.g., smartphones) */
-@media screen and (max-width: 768px) {
-  .sidebar-and-content {
-    /* Adjust styles for small screens */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center elements horizontally */
-    padding: 20px; /* Add some padding to the elements */
-    background-size: contain; /* Adjust background size for small screens */
-  }
+  /* background-color: hsl(174, 100%, 20%); */
+  display: flex;
+ background-image: url('../images/background4.jpg');
+/* Set background properties */
+background-repeat: no-repeat; 
+background-size: cover;
+background-color: #629464;
+ 
 }
-  
-  /* .third-container {
-    flex: 1;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  
-  
-  
-  .content-container {
-    flex: 6; /* Adjust flex-basis to control the width of the content-container */
-    padding: 20px; /* Optional: Add padding to the content container */
-    
-  }
 
-  /* index.css */
-  .third-container {
-    
-    
-    height: 100vh;
-    display: flex;
-  }
-  .personalizedChoiceBar{
-     /* background-color:hsl(174, 100%, 20%);  */
-     padding: 5px;
-     flex: 1;
-     height: 100vh;
-     display: flex;
-  }
+.bold-font {
+  font-weight: 500;
+}
 
-  .sidebar {
-    /* background-color:hsl(174, 100%, 20%);  */
-    padding: 10px;
-    flex: 1;
-    height: 100vh;
-  }
-  
-  .button-container {
-    width: 100%; 
-    
-  }
-  
-  /* Real-time button styles */
-  .button {
-    width: 100%; /* Set the width of the buttons to 100% of the container */
-    height: 50px; /* Set a fixed height for the buttons */
-    margin-bottom: 10px; /* Add some space between the buttons */
-    color: white; /* Set the text color to white */
-    background-color: #578039; /* Apply a green color to the buttons */
-    border: none; /* Remove any button borders */
-    border-radius: 30px; /* Apply a larger border radius to make the edges softer */
-    font-size: 18px; /* Set the font size */
-    cursor: pointer; /* Show pointer cursor on hover */
-    position: relative; /* Set position to relative for the real-time effect */
-    overflow: hidden; /* Hide any overflow from the real-time effect */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions for hover */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the button */
-    text-decoration: none; /* Remove underlines from the button text */
-    display: flex; /* Center the content horizontally and vertically */
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  /* Real-time effect */
-  .button::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent white background */
-    top: 0;
-    left: -100%; /* Move it to the left initially */
-    transition: left 0.3s ease; /* Animate the left position */
-  }
-  
-  .button:hover::before {
-    left: 0; /* Animate the left position to 0 on hover */
-  }
-  
-  /* Hover effect with vibration */
-  @keyframes vibration {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(-1px); }
-    30% { transform: translateX(1px); }
-    40% { transform: translateX(-1px); }
-    50% { transform: translateX(0); }
-  }
-  
-  .button:hover {
-    color:black;
-    background-color: #5f8039; /* Change the button background color on hover */
-    transform: scale(1.05); /* Scale up the button slightly on hover */
-    animation: vibration 0.2s ease infinite; /* Add the vibration animation on hover */
-  }
-
-  .button a {
-    color: black;
-    text-decoration: none;
-    text-size-adjust: 100%;
-  }
-
-  .button a:hover {
-    color:black;
-    text-decoration:none;
-  }
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+}
 
 
-  
+.logo-img {
+  max-width: 150px; /* Adjust the maximum width for the logo */
+  margin-bottom: 0px; /* Reduce the space below the logo */
+}
 
-
-
-  .university_list_header {
-    background-color: #007bff !important;
-    color: white !important;
-  }
-
-
-  /* ------------------new css------------------ */
-  .background-box {
-    padding: 100px;
-    background-image: url('../images/background4.jpg'); /* Replace with your image URL */
+.home-analysis-container {
+  display: flex;
+  flex-direction: column;
+ 
+    background-image: url('../images/background4.jpg');
+    /* Set background properties */
+    background-repeat: no-repeat; 
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-  }
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-  }
   
-  .success-message {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
+ 
+}
 
+.sidebar-and-content {
+  display: flex;
+ 
+}
+
+/* Media query for small screens (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+.sidebar-and-content {
+  /* Adjust styles for small screens */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center elements horizontally */
+  padding: 20px; /* Add some padding to the elements */
+  background-size: contain; /* Adjust background size for small screens */
+}
+}
+
+/* .third-container {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+
+.content-container {
+  flex: 6; /* Adjust flex-basis to control the width of the content-container */
+  padding: 20px; /* Optional: Add padding to the content container */
   
+}
+
+/* index.css */
+.third-container {
+  
+  
+  height: 100vh;
+  display: flex;
+}
+.personalizedChoiceBar{
+   /* background-color:hsl(174, 100%, 20%);  */
+   padding: 5px;
+   flex: 1;
+   height: 100vh;
+   display: flex;
+}
+
+.sidebar {
+  /* background-color:hsl(174, 100%, 20%);  */
+  padding: 10px;
+  flex: 1;
+  height: 100vh;
+}
+
+.button-container {
+  width: 100%; 
+  
+}
+
+/* Real-time button styles */
+.button {
+  width: 100%; /* Set the width of the buttons to 100% of the container */
+  height: 50px; /* Set a fixed height for the buttons */
+  margin-bottom: 10px; /* Add some space between the buttons */
+  color: white; /* Set the text color to white */
+  background-color: #578039; /* Apply a green color to the buttons */
+  border: none; /* Remove any button borders */
+  border-radius: 30px; /* Apply a larger border radius to make the edges softer */
+  font-size: 18px; /* Set the font size */
+  cursor: pointer; /* Show pointer cursor on hover */
+  position: relative; /* Set position to relative for the real-time effect */
+  overflow: hidden; /* Hide any overflow from the real-time effect */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions for hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the button */
+  text-decoration: none; /* Remove underlines from the button text */
+  display: flex; /* Center the content horizontally and vertically */
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Real-time effect */
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent white background */
+  top: 0;
+  left: -100%; /* Move it to the left initially */
+  transition: left 0.3s ease; /* Animate the left position */
+}
+
+.button:hover::before {
+  left: 0; /* Animate the left position to 0 on hover */
+}
+
+/* Hover effect with vibration */
+@keyframes vibration {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-1px); }
+  30% { transform: translateX(1px); }
+  40% { transform: translateX(-1px); }
+  50% { transform: translateX(0); }
+}
+
+.button:hover {
+  color:black;
+  background-color: #5f8039; /* Change the button background color on hover */
+  transform: scale(1.05); /* Scale up the button slightly on hover */
+  animation: vibration 0.2s ease infinite; /* Add the vibration animation on hover */
+}
+
+.button a {
+  color: black;
+  text-decoration: none;
+  text-size-adjust: 100%;
+}
+
+.button a:hover {
+  color:black;
+  text-decoration:none;
+}
+
+
+
+
+
+
+.university_list_header {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+
+/* ------------------new css------------------ */
+.background-box {
+  padding: 100px;
+  background-image: url('../images/background4.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.success-message {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+

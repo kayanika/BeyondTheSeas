@@ -35,6 +35,17 @@ exports.getNonPersonalizedFiltered = async function(req,res,next){
                 }
             })
         }
+        // else if(req.params.filterOption=="tuitionFees"){
+        //     const result=await nonPersonalizedAnalysis.getNonPersonalizedFilteredTuitionFees(req.params.filterOption);
+        //     console.log("got the result back from database");
+        //     console.log(result);
+        //     res.status(200).json({
+        //         status:"success",
+        //         data:{
+        //             user:result.rows
+        //         }
+        //     })
+        // }
         else{
             const result=await nonPersonalizedAnalysis.getNonPersonalizedFilteredTuitionFees(req.params.filterOption);
         console.log("got the result back from database");
