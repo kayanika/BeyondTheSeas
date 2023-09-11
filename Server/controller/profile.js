@@ -102,3 +102,21 @@ exports.getProfile= async function(req,res,next){
         console.log(err);
     }
 }
+exports.getDeadlines= async function(req,res,next){
+    try{
+        console.log("inside Deadlines");
+        console.log(req.params.userID);
+        const result=await user.Deadlines(req.params.userID);
+        console.log("got the result back from database");
+        console.log(result);
+        res.status(201).json({
+            status:"success",
+            data:{
+                universities:result.rows
+            }
+        })
+    }
+    catch(err){
+        console.log(err);
+    }
+}
