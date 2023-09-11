@@ -14,6 +14,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import "./home.css";
+import Link from "@mui/material/Link";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -66,7 +67,9 @@ const Navbar = () => {
             {item.text}
           </a>
         ))}
+        <Link href="/api/user/login" underline="none">
         <button className="primary-button">Log In</button>
+        </Link>
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />

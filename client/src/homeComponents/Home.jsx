@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import { FiArrowRight } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import "./home.css";
+import Link from "@mui/material/Link";
 
 const Home = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,7 +21,7 @@ const Home = () => {
         setCurrentImageIndex((prevIndex) =>
           prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
         );
-      }, 3000); // Change image every 5 seconds
+      }, 2000); // Change image every 5 seconds
   
       return () => {
         clearInterval(slideshowInterval);
@@ -40,9 +41,11 @@ const Home = () => {
           <p className="primary-text">
           Expertly curated university recommendations, crafted to save you time and effort in your pursuit of higher education.
           </p>
+          <Link href="/api/user/register" underline="none">
           <button className="secondary-button">
             Register Now <FiArrowRight />{" "}
           </button>
+          </Link>
         </div>
         {/* design in a way so that all images are showed in same size */}
         <div className="home-image-section">
