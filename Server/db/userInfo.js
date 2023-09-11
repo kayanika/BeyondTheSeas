@@ -80,6 +80,33 @@ class userInfo{
         const result=await db.query(query,params);
         return result;
     }
+    Deadlines=async function(userID){
+        const query=`SELECT
+        u.name AS university_name,
+        u.cs_ranking,
+        u.applicationDeadline,
+        u.website_link
+      FROM
+        student_university_shortlist sur
+      INNER JOIN student s ON sur.student_id = s.student_id
+      INNER JOIN university u ON sur.university_id = u.university_id
+     
+       WHERE sur.student_id=$1`;
+        const params=[userID];
+        const result=await db.query(query,params);
+        return result;
+    }
+
+    getProfile=async function(userID){
+        const query=`SELECT
+        * from student
+     
+       WHERE student_id=$1`;
+        const params=[userID];
+        const result=await db.query(query,params);
+        return result;
+    }
+
         
     
 
