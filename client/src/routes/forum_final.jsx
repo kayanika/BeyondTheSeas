@@ -22,7 +22,7 @@ import UniversityList from '../components/nonpersonalized_list';
 import { AiFillHome } from 'react-icons/ai';
 import { IoPersonCircleSharp } from 'react-icons/io5';
 import '../components/index.css'
-import ViewProfileComponent from './view_profile_component';
+import ViewProfileComponent from './UserProfile';
 import { FaClipboardList } from 'react-icons/fa';
 import ViewShortlist from '../components/shortlisted_university';
 import {MdForum} from 'react-icons/md';

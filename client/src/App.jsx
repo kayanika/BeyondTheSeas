@@ -10,6 +10,9 @@ import ForumFinal from "./routes/forum_final";
 import HomePage from "./homeComponents/home_page";
 import { UniversityContextProvider } from "./context/universityContext";
 // import QuestionDetails from './components/QuestionDetails';
+import Login from "./routes/Login";
+import Register from "./routes/Register";
+import Profile from "./routes/view_profile_component";
 
 const App = () => {
   return (
@@ -26,6 +29,9 @@ const App = () => {
             {/* <Route path="/api/user//profile/:userID/shortlist" element={<ViewShortlist />} /> */}
             <Route path="/api/user/view-forum/:userID" element={<ForumFinal />} />
             <Route path="/api/user/home" element={<HomePage />} />
+            <Route path="/api/user/login" element={<Login />} />
+            <Route path="/api/user/register" element={<Register />} />
+            <Route path="/api/user/profile/:userID" element={<Profile />} />
             {/* <Route path="/api/user/view-forum/:userID/getQuestion/:questionID" element={QuestionDetails} /> */}
             
           </Routes>

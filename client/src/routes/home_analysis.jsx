@@ -22,7 +22,7 @@ import UniversityList from '../components/nonpersonalized_list';
 import { AiFillHome } from 'react-icons/ai';
 import { IoPersonCircleSharp } from 'react-icons/io5';
 import '../components/index.css'
-import ViewProfileComponent from './view_profile_component';
+import ViewProfileComponent from './UserProfile';
 import { FaClipboardList } from 'react-icons/fa';
 import ViewShortlist from '../components/shortlisted_university';
 import {MdForum} from 'react-icons/md';
@@ -115,7 +115,7 @@ export default function MiniDrawer() {
     <Box sx={{ display: 'flex' , color: 'success.dark' }} >
       <CssBaseline />
       <AppBar position="fixed" sx={{backgroundColor:"#578039"}}>
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -124,7 +124,10 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          {/* <Typography variant="h6" noWrap component="div">
+            Beyond The Seas
+          </Typography> */}
+          <Typography variant="h6" noWrap component="div" align='right'>
             Beyond The Seas
           </Typography>
         </Toolbar>

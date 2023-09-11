@@ -10,8 +10,16 @@ import Navbar from "./Navbar";
 import { FiArrowRight } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import "./home.css";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const redirectToRegister = () => {
+    navigate('/api/user/register');
+  };
+
+
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const bannerImages = [BannerBackground,BannerBackground, img4, img5, img6,/* Add more image URLs here */];
   
@@ -20,7 +28,7 @@ const Home = () => {
         setCurrentImageIndex((prevIndex) =>
           prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
         );
-      }, 3000); // Change image every 5 seconds
+      }, 1500); // Change image every 5 seconds
   
       return () => {
         clearInterval(slideshowInterval);
@@ -40,7 +48,7 @@ const Home = () => {
           <p className="primary-text">
           Expertly curated university recommendations, crafted to save you time and effort in your pursuit of higher education.
           </p>
-          <button className="secondary-button">
+          <button className="secondary-button" onClick={redirectToRegister}>
             Register Now <FiArrowRight />{" "}
           </button>
         </div>

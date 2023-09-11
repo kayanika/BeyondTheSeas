@@ -14,8 +14,16 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import "./home.css";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const redirectToLogin = () => {
+    navigate('/api/user/login');
+  };
+
   const [openMenu, setOpenMenu] = useState(false);
 
   // Function to handle anchor link clicks
@@ -66,7 +74,7 @@ const Navbar = () => {
             {item.text}
           </a>
         ))}
-        <button className="primary-button">Log In</button>
+        <button className="primary-button" onClick={redirectToLogin}>Log In</button>
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />

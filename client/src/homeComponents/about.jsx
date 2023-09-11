@@ -1,13 +1,25 @@
 import React from "react";
-import AboutBackground from "../images/uni1.jpg";
+// import AboutBackground from "../images/uni1.jpg";
 import AboutBackgroundImage from "../images/4.png";
 import { BsFillPlayCircleFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 
 const About = () => {
+
+  const navigate = useNavigate();
+
+  const redirectToHome = () => {
+    navigate('/api/user/login');
+  };
+
   return (
     <div className="about-section-container" id="about-section">
       <div className="about-background-image-container">
-        <img src={AboutBackground} alt="" />
+        {/* <img src={AboutBackground} alt="" /> */}
       </div>
       <div className="about-section-image-container">
         <img src={AboutBackgroundImage} alt="" />
@@ -22,7 +34,9 @@ const About = () => {
         </p>
        
         <div className="about-buttons-container">
-          <button className="secondary-button">Learn More</button>
+        <button className="secondary-button" onClick={redirectToHome}>
+      Learn More
+    </button>
           <button
             className="watch-video-button"
             onClick={() => (window.location.href = "https://youtu.be/0vS7wOpnai8")}

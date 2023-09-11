@@ -69,7 +69,7 @@ const NonPersonalizedUniversityList = () => {
 
   return (
     <>
-      <Box height={100} />
+      <Box height={70} />
       <h1 style={{ textAlign: 'center' }}>Nonpersonalized Analysis List</h1>
       <Grid container spacing={0}>
         <Grid item xs={10}>
