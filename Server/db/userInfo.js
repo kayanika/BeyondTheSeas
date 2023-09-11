@@ -96,6 +96,17 @@ class userInfo{
         const result=await db.query(query,params);
         return result;
     }
+
+    getProfile=async function(userID){
+        const query=`SELECT
+        * from student
+     
+       WHERE student_id=$1`;
+        const params=[userID];
+        const result=await db.query(query,params);
+        return result;
+    }
+
         
     
 
