@@ -62,9 +62,15 @@ SELECT q.question_id,q.question_text, a.answer_text,s.username as answerer, p.us
         console.log("inside postQuestion in database");
         console.log(userID);
         console.log(question);
-        const query = "INSERT INTO questions(student_id, keywords, question_text) VALUES($1,$2,$3) returning * ";
+        console.log(keywords);
+        
+
+        const query = "INSERT INTO questions(student_id, keywords, question_text) VALUES ($1, string_to_array($2, ','), $3) RETURNING *;";
         const params = [userID,keywords,question];
         const result = await db.query(query, params);
+
+        console.log(result.rows[0].keywords);
+        console.log(typeof(result.rows[0].keywords));  
         return result;
     }
     postAnswer= async function(userID,questionID,answer) {

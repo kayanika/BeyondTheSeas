@@ -28,6 +28,10 @@ import ViewShortlist from '../components/shortlisted_university';
 import {MdForum} from 'react-icons/md';
 import Forum from '../components/forum';
 import { useParams } from 'react-router-dom';
+import MyCalendar from '../components/cal';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+
 
 const drawerWidth = 240;
 
@@ -102,6 +106,12 @@ export default function MiniDrawer() {
   const [open, setOpen] = useState(true);
   const [menudata, setMenudata] =useState("Home");
 
+  const navigate = useNavigate();
+
+  const redirectToHome = () => {
+    navigate('/api/user/home');
+  };
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -111,6 +121,8 @@ export default function MiniDrawer() {
   };
 
   return (
+
+    
   <>
     <Box sx={{ display: 'flex' , color: 'success.dark' }} >
       <CssBaseline />
@@ -225,9 +237,34 @@ export default function MiniDrawer() {
               <ListItemText primary={open ? "Forum" : ""} />
             </ListItemButton>
           </ListItem>
+
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("calender")}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <FaClipboardList />
+              </ListItemIcon>
+              <ListItemText primary={open ? "Activity Manager" : ""} />
+            </ListItemButton>
+          </ListItem>
           
         </List>
         <Divider />
+        <Button className="secondary-button" onClick={redirectToHome}>
+      Log Out
+    </Button>
+        
         
       </Drawer>
       <Box className="background-box" component="main"  sx={{ flexGrow: 1, p: 3 }}>
@@ -235,6 +272,7 @@ export default function MiniDrawer() {
                   {menudata==="Home" && <UniversityList/>}
                   {menudata==="viewProfile" && <ViewProfileComponent/>}
                   {menudata==="shortList" && <ViewShortlist/>}
+                  {menudata==="calender" && <MyCalendar/>}
                   {/* {menudata==="forum" && <Forum />} */}
       </Box>
     </Box>

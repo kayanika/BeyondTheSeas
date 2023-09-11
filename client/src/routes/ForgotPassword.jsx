@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import bg from "../images/1.png";
-import bgimg from "../images/4.png";
+import bg from "../images/login.png";
+import bgimg from "../images/background3.jpg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -9,14 +9,14 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { useState, forwardRef } from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Stack from "@mui/material/Stack";
 import MuiAlert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import { useNavigate } from "react-router-dom";
-import beyondTheSeas from "../apis/beyondTheSeas";
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -45,18 +45,18 @@ const center = {
   left: "30%",
 };
 
-export default function Register() {
+export default function ForgotPassword() {
   const [open, setOpen] = useState(false);
   const [remember, setRemember] = useState(false);
   const vertical = "top";
   const horizontal = "right";
   const navigate = useNavigate();
 
-//   const handleSubmit = async (event) => {
-//     setOpen(true);
-//     event.preventDefault();
-//     const data = new FormData(event.currentTarget);
-//   };
+  const handleSubmit = async (event) => {
+    setOpen(true);
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+  };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -64,35 +64,6 @@ export default function Register() {
     }
     setOpen(false);
   };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    try {
-      setOpen(true);
-      const response = await beyondTheSeas.post("/register", {
-        userName: event.target.email.value,
-        password: event.target.password.value,
-      });
-  
-      if (response.data.status === "success") {
-        console.log("Login successful");
-        // Redirect to the desired route after successful login
-        navigate(`/api/user/nonPersonalized/${response.data.data.user.userid}`);
-      } else {
-        console.log("Login failed");
-        // Display an error message to the user
-        // You can use state to manage and display the error message
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-      // Display an error message to the user
-      // You can use state to manage and display the error message
-    } finally {
-      setOpen(false);
-    }
-  };
-
 
   function TransitionLeft(props) {
     return <Slide {...props} direction="left" />;
@@ -115,10 +86,7 @@ export default function Register() {
         style={{
           backgroundImage: `url(${bgimg})`,
           backgroundSize: "cover",
-          marginTop: "30px",
-          marginLeft: "25px",
-          marginRight: "25px",
-          height: "95vh",
+          height: "100vh",
           color: "#f5f5f5",
         }}
       >
@@ -133,7 +101,7 @@ export default function Register() {
                   marginLeft: "15px",
                   marginRight: "15px",
                   height: "63vh",
-                  color: "#66B2FF",
+                  color: "#8A9A5B",
                 }}
               ></Box>
             </Grid>
@@ -156,7 +124,7 @@ export default function Register() {
                         <LockOutlinedIcon />
                       </Avatar>
                       <Typography component="h1" variant="h4">
-                        Register
+                        Reset Password
                       </Typography>
                     </Box>
                     <Box
@@ -171,33 +139,11 @@ export default function Register() {
                             required
                             fullWidth
                             id="email"
-                            label="Username"
+                            label="Email"
                             name="email"
                             autoComplete="email"
                           />
                         </Grid>
-                        <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
-                          <TextField
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="new-password"
-                          />
-                        </Grid>
-                        <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
-                          <TextField
-                            required
-                            fullWidth
-                            name="confirmpassword"
-                            label="Confirm Password"
-                            type="password"
-                            id="confirmpassword"
-                            autoComplete="new-password"
-                          />
-                        </Grid>
                         <Grid item xs={12} sx={{ ml: "5em", mr: "5em" }}>
                           <Button
                             type="submit"
@@ -213,33 +159,29 @@ export default function Register() {
                               backgroundColor: "#FF9A01",
                             }}
                           >
-                            Register
+                            Send Reset Link
                           </Button>
                         </Grid>
-                        <Grid item xs={12} sx={{ ml: "5em", mr: "5em" }}>
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            fullWidth="true"
-                            size="large"
-                            sx={{
-                              mt: "15px",
-                              mr: "20px",
-                              borderRadius: 28,
-                              color: "#ffffff",
-                              minWidth: "170px",
-                              backgroundColor: "#FF9A01",
-                            }}
-                          >
-                            <span
-                                style={{ color: "#ffffff", cursor: "pointer" }}
+                        <Grid item xs={12} sx={{ ml: "3em", mr: "3em" }}>
+                          <Stack direction="row" spacing={2}>
+                            <Typography
+                              variant="body1"
+                              component="span"
+                              style={{ marginTop: "10px",
+                            marginLeft: "40px",
+                          marginRight: "10px", }}
+                            >
+                              Login to your Account.
+                              <span
+                                style={{ color: "#beb4fb", cursor: "pointer" }}
                                 onClick={() => {
                                   navigate("/api/user/login");
                                 }}
                               >
-                            Sign In
-                            </span>
-                          </Button>
+                                {" "}Sign In
+                              </span>
+                            </Typography>
+                          </Stack>
                         </Grid>
                       </Grid>
                     </Box>

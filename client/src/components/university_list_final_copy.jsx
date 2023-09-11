@@ -341,7 +341,7 @@ const UniversityList = ({ tableData, columns }) => {
         <StyledCard>
         <StyledCardMedia
           component="img"
-          src={universityImages[university.cs_ranking-1]}
+          src={universityImages[university.cs_ranking - 1]}
           alt="University Image"
         />
            <CardContent style={{ flex: 1 }}>

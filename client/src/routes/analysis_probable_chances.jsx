@@ -30,6 +30,8 @@ import Forum from '../components/forum';
 import AmbitiousUniversityList from '../components/ambitious_university_list';
 import ProbableUniversityList from '../components/probable_university_list';
 import { useParams } from 'react-router-dom';
+import MyCalendar from '../components/cal';
+
 
 const drawerWidth = 240;
 
@@ -198,6 +200,7 @@ export default function MiniDrawer() {
                   justifyContent: 'center',
                 }}
               >
+                
                 <FaClipboardList />
               </ListItemIcon>
               <ListItemText primary={open ? "View ShortList" : ""} />
@@ -224,6 +227,28 @@ export default function MiniDrawer() {
               <ListItemText primary={open ? "Forum" : ""} />
             </ListItemButton>
           </ListItem>
+
+          <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("calender")}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                
+                <FaClipboardList />
+              </ListItemIcon>
+              <ListItemText primary={open ? "Activity Manager" : ""} />
+            </ListItemButton>
+          </ListItem>
           
         </List>
         <Divider />
@@ -235,6 +260,7 @@ export default function MiniDrawer() {
                   {menudata==="Home" && <UniversityList/>}
                   {menudata==="viewProfile" && <ViewProfileComponent/>}
                   {menudata==="shortList" && <ViewShortlist/>}
+                  {menudata==="calender" && <MyCalendar/>}
                   {/* {menudata==="forum" && <Forum />} */}
       </Box>
     </Box>

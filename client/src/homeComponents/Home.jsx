@@ -11,6 +11,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import "./home.css";
 import { useNavigate } from 'react-router-dom';
+import Link from "@mui/material/Link";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ const Home = () => {
           <button className="secondary-button" onClick={redirectToRegister}>
             Register Now <FiArrowRight />{" "}
           </button>
+          
         </div>
         {/* design in a way so that all images are showed in same size */}
         <div className="home-image-section">

@@ -9,9 +9,15 @@ import ViewProfileComponent from "./routes/view_profile_component";
 import ForumFinal from "./routes/forum_final";
 import HomePage from "./homeComponents/home_page";
 import { UniversityContextProvider } from "./context/universityContext";
-// import QuestionDetails from './components/QuestionDetails';
 import Login from "./routes/Login";
 import Register from "./routes/Register";
+import UserProfile from "./routes/UserProfile";
+import UserForm from "./routes/UserForm";
+import ViewCalendar from "./routes/calender";
+
+// import QuestionDetails from './components/QuestionDetails';
+// import Login from "./routes/Login";
+// import Register from "./routes/Register";
 import Profile from "./routes/view_profile_component";
 
 const App = () => {
@@ -31,7 +37,10 @@ const App = () => {
             <Route path="/api/user/home" element={<HomePage />} />
             <Route path="/api/user/login" element={<Login />} />
             <Route path="/api/user/register" element={<Register />} />
-            <Route path="/api/user/profile/:userID" element={<Profile />} />
+            <Route path="/api/user/profile/:userID" element={<UserProfile />} />
+            <Route path="/api/user/user-form" element={<UserForm />} />
+            <Route path="/api/user/my-calendar/:userID" element={<ViewCalendar />} />
+
             {/* <Route path="/api/user/view-forum/:userID/getQuestion/:questionID" element={QuestionDetails} /> */}
             
           </Routes>

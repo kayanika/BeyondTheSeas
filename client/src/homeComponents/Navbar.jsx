@@ -15,6 +15,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import "./home.css";
 import { useNavigate } from 'react-router-dom';
+import Link from "@mui/material/Link";
 
 const Navbar = () => {
 
