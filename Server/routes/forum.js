@@ -7,6 +7,8 @@ const formController=require('../controller/forum');
 
 router.route('/:userID/postQuestion').post(formController.postQuestion);
 router.route('/:userID/postAnswer/:questionID').post(formController.postAnswer);
+router.route('/:userID/editAnswer/:questionID/:answerID').put(formController.editAnswer);
+router.route('/:userID/deleteAnswer/:questionID/:answerID').delete(formController.deleteAnswer);
 router.route('/:userID/searchTopic').post(formController.searchTopic);
 router.route('/:userID/getQuestion/:questionID').get(formController.getOneQUestion);
 router.route('/:userID').get(formController.getForum);

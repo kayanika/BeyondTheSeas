@@ -9,15 +9,25 @@ import {
   TablePagination,
   TableRow,
   TableSortLabel,
-  Button, // Import Button component from @mui/material
+  Button,
+  Select, // Import Select component from @mui/material
+  MenuItem, // Import MenuItem component from @mui/material
+  Typography, // Import Typography component from @mui/material
 } from '@mui/material';
+// ...
+
 import './index.css';
+import beyondTheSeas from '../apis/beyondTheSeas';
+import { useParams } from 'react-router-dom';
 
 const UniversityList = ({ tableData, columns }) => {
+  const { userID } = useParams();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [orderBy, setOrderBy] = useState('');
   const [order, setOrder] = useState('asc');
+  const [filterOption, setFilterOption] = useState('');
+ 
 
   const handleSortRequest = (columnId) => {
     const isAsc = orderBy === columnId && order === 'asc';
@@ -34,9 +44,30 @@ const UniversityList = ({ tableData, columns }) => {
     setPage(0);
   };
 
-  const handleAddToShortlist = (university) => {
-    // Implement your logic here to handle adding to shortlist
-    console.log('Adding university to shortlist:', university);
+  const handleAddToShortlist = async (university) => {
+    try {
+      const response = await beyondTheSeas.post(`/profile/${userID}/shortlist`, {
+        university_id: university.university_id, // Assuming the university id is stored in 'id' field
+      });
+      console.log('University added to shortlist:', response.data);
+      // You might want to update the UI or show a success message here
+    } catch (error) {
+      console.error('Error adding university to shortlist:', error);
+      // Handle the error, show an error message, etc.
+    }
+  };
+
+  const handleAddToBlacklist = async (university) => {
+    try {
+      const response = await beyondTheSeas.post(`/profile/${userID}/blacklist`, {
+        university_id: university.university_id, // Assuming the university id is stored in 'id' field
+      });
+      console.log('University added to blacklist:', response.data);
+      // You might want to update the UI or show a success message here
+    } catch (error) {
+      console.error('Error adding university to blacklist:', error);
+      // Handle the error, show an error message, etc.
+    }
   };
 
   const sortedData = [...tableData].sort((a, b) => {
@@ -65,7 +96,8 @@ const UniversityList = ({ tableData, columns }) => {
                     </TableSortLabel>
                   </TableCell>
                 ))}
-                <TableCell>Add to Shortlist</TableCell> {/* New column header */}
+                <TableCell>Add to Shortlist</TableCell>
+                <TableCell>Add to Blacklist</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -82,7 +114,16 @@ const UniversityList = ({ tableData, columns }) => {
                     >
                       Add
                     </Button>
-                  </TableCell> {/* Add to Shortlist button cell */}
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      variant="outlined"
+                      color="error"
+                      onClick={() => handleAddToBlacklist(university)}
+                    >
+                      Blacklist
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -103,3 +144,6 @@ const UniversityList = ({ tableData, columns }) => {
 };
 
 export default UniversityList;
+
+
+

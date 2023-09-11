@@ -8,7 +8,7 @@ const googleController=require('../googleAPI/api');
 
 exports.createEvent = async (req, res, next) => {
     console.log("sending to google controller");
-    googleController.createEvent(req.body.activity_date,req.body.event_summary,req.body.event_description);
+   // googleController.createEvent(req.body.activity_date,req.body.event_summary,req.body.event_description);
     console.log("sent to google controller");
     console.log("now tryin to insert into database");
     try {
