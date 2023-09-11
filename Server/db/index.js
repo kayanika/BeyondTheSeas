@@ -9,8 +9,8 @@ const pool = new Pool(
   // password: 'KOzPun0L1NwkLqedJABdhktUvN38C630',
   user:'postgres',
   host:'localhost',
-  database:'postgres',
-    password:'123456',
+  database:'BeyondTheSeas',
+    password:'1234',
   port: 5432,
 // ssl : true,
 
